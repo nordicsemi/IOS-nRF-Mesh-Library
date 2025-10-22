@@ -29,6 +29,7 @@
 *
 * Created by Jules DOMMARTIN on 04/11/2024.
 */
+import NordicMesh
 
 class HealthClientHandler: ModelDelegate {
     var messageTypes: [UInt32 : MeshMessage.Type]

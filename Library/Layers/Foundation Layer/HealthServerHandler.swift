@@ -29,6 +29,7 @@
 */
 
 import Foundation
+import NordicMesh
 
 /// A stub implementation of Health Server model.
 ///

@@ -362,18 +362,18 @@ open class BaseGattProxyBearer<Service: MeshService>: NSObject, Bearer, CBCentra
     
 }
 
-extension CBManagerState: @retroactive CustomDebugStringConvertible {
-    
-    public var debugDescription: String {
-        switch self {
-        case .unknown: return ".unknown"
-        case .resetting: return ".resetting"
-        case .unsupported: return ".unsupported"
-        case .unauthorized: return ".unauthorized"
-        case .poweredOff: return ".poweredOff"
-        case .poweredOn: return ".poweredOn"
-        default: return "Unknown"
-        }
-    }
-    
-}
+//extension CBManagerState: @retroactive CustomDebugStringConvertible {
+//    
+//    public var debugDescription: String {
+//        switch self {
+//        case .unknown: return ".unknown"
+//        case .resetting: return ".resetting"
+//        case .unsupported: return ".unsupported"
+//        case .unauthorized: return ".unauthorized"
+//        case .poweredOff: return ".poweredOff"
+//        case .poweredOn: return ".poweredOn"
+//        default: return "Unknown"
+//        }
+//    }
+//    
+//}
