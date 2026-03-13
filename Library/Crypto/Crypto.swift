@@ -438,7 +438,7 @@ private extension Crypto {
     /// - returns: The 128-bit authentication code (MAC).
     static func calculateCMAC(_ data: Data, andKey key: Data) -> Data {
         do {
-            let array = try CMAC(key: key.bytes).authenticate(data.bytes)
+            let array = try CMAC(key: Array(key)).authenticate(Array(data))
             return Data(array)
         } catch {
             fatalError("Failed to calculate CMAC: \(error)")
@@ -458,7 +458,7 @@ private extension Crypto {
     /// - returns: The 128-bit authentication code (MAC).
     static func calculateHMAC_SHA256(_ data: Data, andKey key: Data) -> Data {
         do {
-            let array = try HMAC(key: key.bytes, variant: .sha2(.sha256)).authenticate(data.bytes)
+            let array = try HMAC(key: Array(key), variant: .sha2(.sha256)).authenticate(Array(data))
             return Data(array)
         } catch {
             fatalError("Failed to calculate HMAC-SHA-256: \(error)")
@@ -474,16 +474,16 @@ private extension Crypto {
     static func calculateECB(_ data: Data, andKey key: Data) -> Data {
         do {
             let ecb = ECB()
-            let aes = try AES(key: key.bytes, blockMode: ecb, padding: .noPadding)
-            let array = try aes.encrypt(data.bytes)
+            let aes = try AES(key: Array(key), blockMode: ecb, padding: .noPadding)
+            let array = try aes.encrypt(Array(data))
             return Data(array)
         } catch {
             fatalError("Calculating ECB failed: \(error)")
         }
     }
     
-    /// RFC3610 defines teh AES Counter with CBC-MAC (CCM).
-    /// This method generates ciphertext and MIC (Message Integrity Check).
+    /// RFC3610 defines the AES Counter with CBC-MAC (CCM).
+    /// This method generates cipher text and MIC (Message Integrity Check).
     ///
     /// - parameters:
     ///   - data:  The data to be encrypted and authenticated, also known as plaintext.
@@ -495,10 +495,10 @@ private extension Crypto {
     static func calculateCCM(_ data: Data, withKey key: Data, nonce: Data,
                              andMICSize size: UInt8, withAdditionalData aad: Data?) -> Data {
         do {
-            let ccm = CCM(iv: nonce.bytes, tagLength: Int(size), messageLength: data.count,
-                          additionalAuthenticatedData: aad?.bytes)
-            let aes = try AES(key: key.bytes, blockMode: ccm, padding: .noPadding)
-            let array = try aes.encrypt(data.bytes)
+            let ccm = CCM(iv: Array(nonce), tagLength: Int(size), messageLength: data.count,
+                          additionalAuthenticatedData: aad.map { Array($0) })
+            let aes = try AES(key: Array(key), blockMode: ccm, padding: .noPadding)
+            let array = try aes.encrypt(Array(data))
             return Data(array)
         } catch {
             fatalError("CCM encryption failed: \(error)")
@@ -521,11 +521,11 @@ private extension Crypto {
             // In CryptoSwift 1.3.8 the authenticationTag is ignored in CCM:
             // https://github.com/krzyzanowskim/CryptoSwift/issues/853
             let concatenated = data + mic
-            let ccm = CCM(iv: nonce.bytes, tagLength: mic.count, messageLength: data.count,
-                          // authenticationTag: mic.bytes,
-                          additionalAuthenticatedData: aad?.bytes)
-            let aes = try AES(key: key.bytes, blockMode: ccm, padding: .noPadding)
-            let array = try aes.decrypt(concatenated.bytes /* data.bytes */)
+            let ccm = CCM(iv: Array(nonce), tagLength: mic.count, messageLength: data.count,
+                          // authenticationTag: Array(mic),
+                          additionalAuthenticatedData: aad.map { Array($0) })
+            let aes = try AES(key: Array(key), blockMode: ccm, padding: .noPadding)
+            let array = try aes.decrypt(Array(concatenated) /* Array(data) */)
             return Data(array)
         } catch CCM.Error.fail {
             return nil
