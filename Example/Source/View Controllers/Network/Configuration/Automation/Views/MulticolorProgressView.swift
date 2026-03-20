@@ -60,6 +60,11 @@ class MulticolorProgressView: UIView {
         self.skipped += 1
         setNeedsDisplay()
     }
+    
+    func retryLast() {
+        self.fail -= 1
+        setNeedsDisplay()
+    }
 
     override func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else {

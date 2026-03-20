@@ -44,12 +44,9 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var ivIndexLabel: UILabel!
     @IBOutlet weak var testModeSwitch: UISwitch!
     @IBOutlet weak var lastModifiedLabel: UILabel!
-    @IBAction func testModeDidChange(_ sender: UISwitch) {
-        MeshNetworkManager.instance.networkParameters.ivUpdateTestMode = sender.isOn
-    }
-    
     @IBOutlet weak var resetNetworkButton: UIButton!
-    
+    @IBOutlet weak var quickProvisionSwitch: UISwitch!
+    @IBOutlet weak var alwaysReconfigure: UISwitch!
     @IBOutlet weak var appVersionLabel: UILabel!
     @IBOutlet weak var appBuildNumberLabel: UILabel!
     
@@ -57,6 +54,18 @@ class SettingsViewController: UITableViewController {
     
     @IBAction func organizeTapped(_ sender: UIBarButtonItem) {
         displayImportExportOptions()
+    }
+    
+    @IBAction func testModeDidChange(_ sender: UISwitch) {
+        MeshNetworkManager.instance.networkParameters.ivUpdateTestMode = sender.isOn
+    }
+    
+    @IBAction func quickProvisioningDidChange(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "quickProvisioning")
+    }
+    
+    @IBAction func alwaysReconfigureDidChange(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "alwaysReconfigure")
     }
     
     // MARK: - Private members
@@ -74,6 +83,10 @@ class SettingsViewController: UITableViewController {
         // Load versions.
         appVersionLabel.text = AppInfo.version
         appBuildNumberLabel.text = AppInfo.buildNumber
+        
+        // Load developer settings.
+        quickProvisionSwitch.isOn = UserDefaults.standard.bool(forKey: "quickProvisioning")
+        alwaysReconfigure.isOn = UserDefaults.standard.bool(forKey: "alwaysReconfigure")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,6 +156,22 @@ class SettingsViewController: UITableViewController {
                          message: "IV Update test mode allows to transition to the subsequent "
                                 + "IV Index without having to wait at least 96 hours.\n\n"
                                 + "The transition is initiated when a valid Secure Network beacon is received.")
+        }
+        if indexPath.isQuickProvisioning {
+            presentAlert(title: "Info",
+                         message: "Quick Provisioning skips provisioning configuration and automatically "
+                                + "uses default settings (primary network key, first available unicast address, no OOB).\n\n"
+                                + "For testing purposes only.")
+                                    
+        }
+        if indexPath.isAlwaysReconfigure {
+            presentAlert(title: "Info",
+                         message: "When enabled, the app automatically reprovisions and reconfigures "
+                                + "devices if nodes with the same UUID already exist in the network.\n\n"
+                                + "The devices will be assigned a new unicast address. Any nodes configured "
+                                + "to publish to the old unicast addresses will be reconfigured.\n\n"
+                                + "This is intended for recreating the network from a saved configuration.")
+                                    
         }
     }
     
@@ -292,6 +321,7 @@ private extension SettingsViewController {
                                       preferredStyle: .actionSheet)
         let resetAction = UIAlertAction(title: "Reset", style: .destructive) { [weak self] _ in
             _ = MeshNetworkManager.instance.clear()
+            self?.resetDeveloperSettings()
             self?.openNewNetworkWizard()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -370,6 +400,16 @@ private extension SettingsViewController {
             self.presentAlert(title: "Error", message: "Mesh configuration could not be saved.")
         }
     }
+    
+    /// Clears the Developer Settings to default values.
+    func resetDeveloperSettings() {
+        DispatchQueue.main.async { [weak self] in
+            UserDefaults.standard.set(false, forKey: "quickProvisioning")
+            self?.quickProvisionSwitch.isOn = false
+            UserDefaults.standard.set(false, forKey: "alwaysReconfigure")
+            self?.alwaysReconfigure.isOn = false
+        }
+    }
 }
 
 // MARK: - UIDocumentPickerDelegate -
@@ -409,6 +449,7 @@ extension SettingsViewController: UIDocumentPickerDelegate {
                     }
                 }
                 self.saveAndReload()
+                self.resetDeveloperSettings()
             } catch let DecodingError.dataCorrupted(context) {
                 let path = context.codingPath.path
                 print("Import failed: \(context.debugDescription) (\(path))")
@@ -465,11 +506,12 @@ extension SettingsViewController: UIDocumentPickerDelegate {
 }
 
 private extension IndexPath {
-    static let nameSection    = 0
-    static let networkSection = 1
-    static let dateSection    = 2
-    static let actionsSection = 3
-    static let aboutSection   = 4
+    static let nameSection      = 0
+    static let networkSection   = 1
+    static let dateSection      = 2
+    static let actionsSection   = 3
+    static let developerSection = 4
+    static let aboutSection     = 5
     
     /// Returns whether the IndexPath points to the mesh network name row.
     var isNetworkName: Bool {
@@ -489,6 +531,16 @@ private extension IndexPath {
     /// Returns whether the IndexPath points to the network resetting option.
     var isResetNetwork: Bool {
         return section == IndexPath.actionsSection && row == 0
+    }
+    
+    /// Returns whether the IndexPath points to the Quick Provisioning switch row.
+    var isQuickProvisioning: Bool {
+        return section == IndexPath.developerSection && row == 0
+    }
+    
+    /// Returns whether the IndexPath points to the Always Reconfigure switch row.
+    var isAlwaysReconfigure: Bool {
+        return section == IndexPath.developerSection && row == 1
     }
     
     /// Returns whether the IndexPath points to the Source Code link.
@@ -517,3 +569,4 @@ private extension Array where Element == CodingKey {
     }
     
 }
+

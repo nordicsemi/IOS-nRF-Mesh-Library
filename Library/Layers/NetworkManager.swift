@@ -491,7 +491,7 @@ internal class NetworkManager {
     ///
     /// - parameter handler: The message identifier.
     func cancel(messageWithHandler handler: MessageHandle) {
-        accessLayer.cancel(handler)
+        accessLayer.cancel(handler, andNotify: true)
     }
     
     /// Notifies a callback awaiting messages with given OpCode sent from

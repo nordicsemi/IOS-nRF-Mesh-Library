@@ -100,24 +100,28 @@ public extension Address {
     }
     
     /// Returns `true` if the address is an Unassigned Address.
+    ///
     /// Unassigned addresses is equal to 0b0000000000000000.
     var isUnassigned: Bool {
         return self == Address.unassignedAddress
     }
     
     /// Returns `true` if the address is an Unicast Address.
+    ///
     /// Unicast addresses match 0b00xxxxxxxxxxxxxx (except 0b0000000000000000).
     var isUnicast: Bool {
         return (self & 0x8000) == 0x0000 && !isUnassigned
     }
     
     /// Returns `true` if the address is a Virtual Address.
+    ///
     /// Virtual addresses match 0b10xxxxxxxxxxxxxx.
     var isVirtual: Bool {
         return (self & 0xC000) == 0x8000
     }
     
     /// Returns `true` if the address is a Group Address.
+    ///
     /// Group addresses match 0b11xxxxxxxxxxxxxx.
     var isGroup: Bool {
         return (self & 0xC000) == 0xC000 && isValidAddress

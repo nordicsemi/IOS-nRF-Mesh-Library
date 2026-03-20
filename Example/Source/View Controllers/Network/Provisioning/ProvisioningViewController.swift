@@ -253,7 +253,7 @@ private extension ProvisioningViewController {
     
 }
 
-private extension ProvisioningViewController {    
+private extension ProvisioningViewController {
     
     /// This method tries to open the bearer had it been closed when on this screen.
     func openBearer() {
@@ -288,10 +288,18 @@ private extension ProvisioningViewController {
         publicKey = publicKey ?? .noOobPublicKey
         
         // If any of OOB methods is supported, it should be chosen.
+        let noOobSupported = !capabilities.oobType.contains(.onlyOobAuthenticatedProvisioningSupported)
         let staticOobSupported = capabilities.oobType.contains(.staticOobInformationAvailable)
         let outputOobSupported = !capabilities.outputOobActions.isEmpty
         let inputOobSupported  = !capabilities.inputOobActions.isEmpty
-        let anyOobSupported = staticOobSupported || outputOobSupported || inputOobSupported
+        let anyOobSupported = noOobSupported || staticOobSupported || outputOobSupported || inputOobSupported
+        
+        // With Quick Provisioning set No OOB, if possible.
+        let quickProvisioning = UserDefaults.standard.bool(forKey: "quickProvisioning")
+        if quickProvisioning && noOobSupported {
+            authenticationMethod = .noOob
+        }
+        
         guard !anyOobSupported || authenticationMethod != nil else {
             presentOobOptionsDialog(for: provisioningManager, from: provisionButton) { [weak self] method in
                 guard let self = self else { return }
@@ -383,6 +391,15 @@ extension ProvisioningViewController: GattBearerDelegate {
                         }
                     }
                 }
+                
+                // With Quick Provisioning set, the app should attempt to reconnect
+                // to the new Node over GATT bearer, if possible.
+                let quickProvisioning = UserDefaults.standard.bool(forKey: "quickProvisioning")
+                if quickProvisioning {
+                    done(reconnect: true)
+                    return
+                }
+                
                 let reconnectAction = UIAlertAction(title: "Yes", style: .default) { _ in
                     done(reconnect: true)
                 }
@@ -429,7 +446,7 @@ extension ProvisioningViewController: ProvisioningDelegate {
                 
                 // This is needed to refresh constraints after filling new values.
                 self.tableView.reloadData()
-    		            
+                
                 // If the Unicast Address was set to automatic (nil), it should be
                 // set to the correct value by now, as we know the number of elements.
                 let addressValid = self.provisioningManager.isUnicastAddressValid == true
@@ -442,6 +459,9 @@ extension ProvisioningViewController: ProvisioningDelegate {
                 let capabilitiesWereAlreadyReceived = self.capabilitiesReceived
                 self.capabilitiesReceived = true
                 
+                // Load Developer setting.
+                let quickProvisioning = UserDefaults.standard.bool(forKey: "quickProvisioning")
+                
                 let deviceSupported = self.provisioningManager.isDeviceSupported == true
                 
                 self.dismissStatusDialog {
@@ -449,7 +469,7 @@ extension ProvisioningViewController: ProvisioningDelegate {
                         // If the device got disconnected after the capabilities were received
                         // the first time, the app had to send invitation again.
                         // This time we can just directly proceed with provisioning.
-                        if capabilitiesWereAlreadyReceived {
+                        if capabilitiesWereAlreadyReceived || quickProvisioning {
                             self.startProvisioning()
                         }
                     } else {
@@ -505,10 +525,11 @@ extension ProvisioningViewController: ProvisioningDelegate {
                 }
             }
             
-        case let .provideNumeric(maximumNumberOfDigits: _, outputAction: action, callback: callback):
+        case let .provideNumeric(maximumNumberOfDigits: max, outputAction: action, callback: callback):
             self.dismissStatusDialog {
                 var message: String
                 switch action {
+                // case .outputAlphanumeric is handled by provideAlphanumeric below.
                 case .blink:
                     message = "Enter number of blinks."
                 case .beep:
@@ -522,7 +543,13 @@ extension ProvisioningViewController: ProvisioningDelegate {
                 }
                 self.presentTextAlert(title: "Authentication", message: message,
                                       type: .unsignedNumberRequired, cancelHandler: nil) { text in
-                    callback(UInt(text)!)
+                    guard let value = BigUInt(decimalString: text) else {
+                        self.presentAlert(title: "Error", message: "Invalid number format. Maximum number of digits: \(max).") { _ in
+                            self.authenticationActionRequired(.provideNumeric(maximumNumberOfDigits: max, outputAction: action, callback: callback))
+                        }
+                        return
+                    }
+                    callback(value)
                 }
             }
             
@@ -539,7 +566,13 @@ extension ProvisioningViewController: ProvisioningDelegate {
             self.presentStatusDialog(message: "Enter the following text on your device:\n\n\(text)")
             
         case let .displayNumber(value, inputAction: action):
-            self.presentStatusDialog(message: "Perform \(action) \(value) times on your device.")
+            switch action {
+            // case .inputAlphanumeric is handled by displayAlphanumeric above.
+            case .inputNumeric:
+                self.presentStatusDialog(message: "Enter the following number on your device:\n\n\(value)")
+            default:
+                self.presentStatusDialog(message: "Perform \(action) \(value) times on your device.")
+            }
         }
     }
     

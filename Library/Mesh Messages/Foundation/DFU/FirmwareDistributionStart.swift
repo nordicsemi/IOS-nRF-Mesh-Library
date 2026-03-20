@@ -111,7 +111,7 @@ public struct FirmwareDistributionStart: StaticAcknowledgedMeshMessage {
         ttl distributionTtl: UInt8 = 0xFF,
         mode distributionTransferMode: TransferMode = .push,
         updatePolicy: FirmwareUpdatePolicy = .verifyAndApply,
-        distributionTimeoutBase: UInt16 = 118, // 20 minutes
+        distributionTimeoutBase: UInt16 = 118 // 20 minutes
     ) {
         self.applicationKeyIndex = applicationKeyIndex
         self.ttl = distributionTtl

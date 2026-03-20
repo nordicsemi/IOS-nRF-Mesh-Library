@@ -114,10 +114,12 @@ class NodeViewController: ProgressViewController, SupportsNodeIdentification {
         super.viewDidAppear(animated)
         
         MeshNetworkManager.instance.delegate = self
+        MeshNetworkManager.instance.proxyFilter.delegate = self
         
-        // Check if the local Provisioner has configuration capabilities.
+        // Config messages can only be sent if the Device Key is known,
+        // and the Provisioner has Unicast Address assigned.
         let localProvisioner = MeshNetworkManager.instance.meshNetwork?.localProvisioner
-        guard localProvisioner?.hasConfigurationCapabilities ?? false else {
+        guard let _ = node.deviceKey, localProvisioner?.hasConfigurationCapabilities ?? false else {
             // The Provisioner cannot sent or receive messages.
             configureButton.isEnabled = false
             identifyAction.isEnabled = false
@@ -125,16 +127,7 @@ class NodeViewController: ProgressViewController, SupportsNodeIdentification {
         }
         
         // If the Composition Data were never obtained, get them now.
-        if !node.isCompositionDataReceived {
-            // This will request Composition Data when the bearer is open.
-            getCompositionData()
-            // performSegue(withIdentifier: "reconfigure", sender: nil)
-        } else if node.defaultTTL == nil {
-            getTtl()
-        } else {
-            configureButton.isEnabled = node.deviceKey != nil
-            identifyAction.isEnabled = node.deviceKey != nil
-        }
+        discover()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -535,6 +528,36 @@ private extension NodeViewController {
         }
     }
     
+    /// Makes sure the Composition Data Page 0 is obtained.
+    ///
+    /// This requires the Proxy Filter setup to be complete. If not ready, this method does nothing.
+    func discover() {
+        // A message can only be sent if the GATT Proxy Node is ready.
+        guard let _ = MeshNetworkManager.instance.proxyFilter.proxy else {
+            return
+        }
+        
+        if !node.isCompositionDataReceived {
+            // This will request Composition Data when the bearer is open.
+            getCompositionData()
+        } else if node.defaultTTL == nil {
+            getTtl()
+        } else {
+            configureButton.isEnabled = true
+            identifyAction.isEnabled = true
+        }
+    }
+    
+}
+
+extension NodeViewController: ProxyFilterDelegate {
+    func proxyFilterUpdated(type: ProxyFilerType, addresses: Set<Address>) {
+        // Do nothing
+    }
+    
+    func proxyFilterUpdateAcknowledged(type: ProxyFilerType, listSize: UInt16) {
+        discover()
+    }
 }
 
 extension NodeViewController: MeshNetworkDelegate {

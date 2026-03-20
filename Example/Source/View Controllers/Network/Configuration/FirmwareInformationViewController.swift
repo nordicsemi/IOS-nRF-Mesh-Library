@@ -33,16 +33,13 @@ import NordicMesh
 
 class FirmwareInformationViewController: ProgressViewController {
     
-    // MARK: - Outlets
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     // MARK: - Properties
     
     var model: Model!
     var index: UInt8!
     var firmwareInformation: FirmwareInformation!
     
+    private var activityIndicator: UIActivityIndicatorView!
     private var metadataCheckStatus: FirmwareUpdateFirmwareMetadataStatus?
     private var updatedFirmwareInformation: UpdatedFirmwareInformation?
     
@@ -54,6 +51,13 @@ class FirmwareInformationViewController: ProgressViewController {
         super.viewDidLoad()
         
         title = "Image \(index!)"
+        
+        activityIndicator = UIActivityIndicatorView(style: .medium)
+        let indicator = UIBarButtonItem(customView: activityIndicator)
+        if #available(iOS 26.0, *) {
+            indicator.hidesSharedBackground = true
+        }
+        navigationItem.rightBarButtonItem = indicator
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -316,7 +320,7 @@ private extension FirmwareInformationViewController {
         let message = FirmwareUpdateFirmwareMetadataCheck(imageIndex: index, metadata: metadata)
         
         start("Checking metadata...") { [model] in
-            return try! MeshNetworkManager.instance.send(message, to: model!) { [weak self] result in
+            return try MeshNetworkManager.instance.send(message, to: model!) { [weak self] result in
                 self?.done { [weak self] in
                     do {
                         let status = try result.get() as! FirmwareUpdateFirmwareMetadataStatus
