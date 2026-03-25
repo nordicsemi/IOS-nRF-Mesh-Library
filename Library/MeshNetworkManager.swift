@@ -50,6 +50,8 @@ public class MeshNetworkManager: NetworkParametersProvider {
     public weak var delegate: MeshNetworkDelegate?
     /// The delegate will be created when the Attention Timer is started by a remote Node.
     public weak var attentionTimerDelegate: AttentionTimerDelegate?
+    /// Optional delegate notified when a Bluetooth Mesh Heartbeat is received.
+    public weak var heartbeatDelegate: MeshHeartbeatDelegate?
     /// The sender object should send PDUs created by the manager
     /// using any Bearer.
     public weak var transmitter: Transmitter? {

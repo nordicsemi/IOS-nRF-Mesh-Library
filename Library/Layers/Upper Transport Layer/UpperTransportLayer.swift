@@ -83,6 +83,22 @@ internal class UpperTransportLayer {
             case HeartbeatMessage.opCode:
                 if let heartbeat = HeartbeatMessage(fromControlMessage: controlMessage) {
                     logger?.i(.upperTransport, "\(heartbeat) received from 0x\(heartbeat.source.hex)")
+
+                    // Emit to app-level delegate (if desired).
+                    if let manager = networkManager.delegate as? MeshNetworkManager {
+                        let exported = MeshHeartbeat(
+                            source: heartbeat.source,
+                            destination: heartbeat.destination,
+                            initialTtl: heartbeat.initialTtl,
+                            receivedTtl: heartbeat.receivedTtl,
+                            hops: heartbeat.hops,
+                            featuresRaw: heartbeat.features.rawValue,
+                            ivIndex: heartbeat.ivIndex,
+                            timestamp: Date()
+                        )
+                        manager.heartbeatDelegate?.meshNetworkManager(manager, didReceiveHeartbeat: exported)
+                    }
+
                     handle(heartbeat: heartbeat)
                 }
             default:
