@@ -533,7 +533,8 @@ private extension NodeViewController {
     /// This requires the Proxy Filter setup to be complete. If not ready, this method does nothing.
     func discover() {
         // A message can only be sent if the GATT Proxy Node is ready.
-        guard let _ = MeshNetworkManager.instance.proxyFilter.proxy else {
+        guard MeshNetworkManager.instance.proxyFilter.proxy != nil ||
+              node.isLocalProvisioner else {
             return
         }
         
