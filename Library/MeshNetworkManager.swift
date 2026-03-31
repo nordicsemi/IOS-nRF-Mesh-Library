@@ -1179,6 +1179,25 @@ extension MeshNetworkManager: NetworkManagerDelegate {
         }
     }
     
+    func networkManager(_ manager: NetworkManager, didReceiveHeartbeat heartbeat: HeartbeatMessage) {
+        // Skip, if no delegate set.
+        guard let delegate = heartbeatDelegate else {
+            return
+        }
+        let exported = MeshHeartbeat(
+            source: heartbeat.source,
+            destination: heartbeat.destination,
+            initialTtl: heartbeat.initialTtl,
+            receivedTtl: heartbeat.receivedTtl!, // This is not nil for incoming heartbeats.
+            hops: heartbeat.hops,
+            features: heartbeat.features,
+            timestamp: Date()
+        )
+        delegateQueue.async {
+            delegate.meshNetworkManager(self, didReceiveHeartbeat: exported)
+        }
+    }
+    
     func networkManager(_ manager: NetworkManager,
                         didSendMessage message: MeshMessage,
                         from localElement: Element, to destination: MeshAddress) {
