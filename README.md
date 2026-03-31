@@ -1,4 +1,4 @@
-[![GitHub license](https://img.shields.io/github/license/NordicSemiconductor/IOS-nRF-Mesh-Library)](https://github.com/NordicSemiconductor/IOS-nRF-Mesh-Library/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/NordicSemiconductor/IOS-nRF-Mesh-Library)](https://github.com/nordicsemi/IOS-nRF-Mesh-Library/blob/master/LICENSE)
 [![Version](http://img.shields.io/cocoapods/v/nRFMeshProvision.svg)](http://cocoapods.org/pods/nRFMeshProvision)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen)](https://swift.org/package-manager/)
@@ -33,7 +33,7 @@ and [**Mesh Device Properties**](https://www.bluetooth.com/specifications/device
 5. Scenes (both as client and server).
 6. Managing proxy filter.
 7. IV Index update (handled by Secure Network beacons).
-8. [Key Refresh Procedure](https://github.com/NordicSemiconductor/IOS-nRF-Mesh-Library/pull/314) 
+8. [Key Refresh Procedure](https://github.com/nordicsemi/IOS-nRF-Mesh-Library/pull/314) 
    (using *ConfigKeyRefreshPhaseSet* messages, not Secure Network beacon). 
 9. Heartbeats (both as client and server).
 10. Exporting network state with format compatible to 
@@ -107,8 +107,8 @@ and [nRF Connect SDK](https://www.nordicsemi.com/Products/Development-software/n
 
 Any feedback is more than welcome. Please, test the app, test the library and check out the API.
 
-Use [Issues](https://github.com/NordicSemiconductor/IOS-nRF-Mesh-Library/issues) to report a bug, or ask a question. We also encourage to submit 
-[Pull Requests](https://github.com/NordicSemiconductor/IOS-nRF-Mesh-Library/pulls) with new features or bug fixes.
+Use [Issues](https://github.com/nordicsemi/IOS-nRF-Mesh-Library/issues) to report a bug, or ask a question. We also encourage to submit 
+[Pull Requests](https://github.com/nordicsemi/IOS-nRF-Mesh-Library/pulls) with new features or bug fixes.
 
 ## License
 

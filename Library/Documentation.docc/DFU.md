@@ -119,7 +119,7 @@ imageManager.logDelegate = self
 _ = imageManager.upload(images: [image], using: config, delegate: callback)
 ```
 
-Refer to [`DFUViewController`](https://github.com/NordicSemiconductor/IOS-nRF-Mesh-Library/blob/main/Example/Source/View%20Controllers/Network/DFU/DFUViewController.swift) 
+Refer to [`DFUViewController`](https://github.com/nordicsemi/IOS-nRF-Mesh-Library/blob/main/Example/Source/View%20Controllers/Network/DFU/DFUViewController.swift) 
 in the sample app for a usage example.
 
 #### 8. Start Firmware Distribution
