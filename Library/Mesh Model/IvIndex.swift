@@ -45,7 +45,13 @@ import Foundation
 /// active, a node shall transmit using the current IV Index - 1 and shall process
 /// messages from the current IV Index - 1 and also the current IV Index.
 public struct IvIndex {
+    /// The value of the IV Index.
+    ///
+    /// The IV Index is a 32-bit value that is a shared network resource
+    /// (i.e., all Nodes in a mesh network share the same value of the IV Index
+    /// and use it for all subnets they belong to).
     public var index: UInt32 = 0
+    /// Whether the IV Update procedure is active.
     public var updateActive: Bool = false
 }
 
