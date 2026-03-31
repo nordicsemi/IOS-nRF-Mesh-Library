@@ -195,7 +195,7 @@
 		3E86250DB3742C464633902494CB85C9 /* RSA+Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1236A50B90AA3E56A3430262C676C5BC /* RSA+Cipher.swift */; };
 		3F65FEDCFEF7D496622F14EC6B645741 /* HealthClientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D11C7EEBB72AEA5AE27B3F69690DC /* HealthClientHandler.swift */; };
 		3F84467F8F9A45C1E6D1DC0E1C106A50 /* LocationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EABA0DF5E8CFB8007F2144878259E3 /* LocationMessage.swift */; };
-		407C079501FF086F096771C1EB199E55 /* CryptoSwift-CryptoSwift in Resources */ = {isa = PBXBuildFile; fileRef = 409A40F21065BFF2199E91A10A27F9DA /* CryptoSwift-CryptoSwift */; };
+		407C079501FF086F096771C1EB199E55 /* CryptoSwift.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 409A40F21065BFF2199E91A10A27F9DA /* CryptoSwift.bundle */; };
 		407FCDF5F79C06D5AD6425AA8FC715A2 /* AEADXChaCha20Poly1305.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6807906D8609A1965F236C2E98989F2C /* AEADXChaCha20Poly1305.swift */; };
 		41C94099C3DC915B143D08F0765E484C /* ConfigNetKeyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C405A1BB76B2CF54B3FB3FAA355E6C1 /* ConfigNetKeyList.swift */; };
 		41C9948CE4175E8C099D032F2241A99A /* LightLightnessRangeGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADCDE35F3C6CFB39667A1D7C8C48876 /* LightLightnessRangeGet.swift */; };
@@ -508,7 +508,7 @@
 		B269EB3B40126D716535E28CE8F3C029 /* LightLightnessLinearStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F425617F2DA5CD02534B8A69ABFF029 /* LightLightnessLinearStatus.swift */; };
 		B32936C4998503400737255511CBC503 /* ConfigModelSubscriptionVirtualAddressDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E14A03BF5AEECBF39B235D79F4F88D3 /* ConfigModelSubscriptionVirtualAddressDelete.swift */; };
 		B3D4B9CF15F0E7C0B1DB90245EA53024 /* ConfigNetKeyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B93882477D5B1302149B38B66A6B7 /* ConfigNetKeyStatus.swift */; };
-		B41276D6865E0A584B8922ABE3C45376 /* ZIPFoundation-ZIPFoundation_Privacy in Resources */ = {isa = PBXBuildFile; fileRef = CA4A114775B98CEA4A566C18123B145F /* ZIPFoundation-ZIPFoundation_Privacy */; };
+		B41276D6865E0A584B8922ABE3C45376 /* ZIPFoundation_Privacy.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CA4A114775B98CEA4A566C18123B145F /* ZIPFoundation_Privacy.bundle */; };
 		B428D30FC4765F0FCBB472557DC33C42 /* ConfigCompositionDataGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBEF8125B92EDFE3B65767FBFFEA7B4 /* ConfigCompositionDataGet.swift */; };
 		B43FE1EC0236527AC71F0E6CDFB64BC4 /* FirmwareDistributionFirmwareDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D1DBD32BDE73170D603E521437545 /* FirmwareDistributionFirmwareDelete.swift */; };
 		B5872CE66A2504D080410C094232D052 /* LightLightnessStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0763A108A7D39B98E3ABF85E98BB46 /* LightLightnessStatus.swift */; };
@@ -572,7 +572,7 @@
 		CA477EBE656478ECA5453DD27111867C /* Array+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28240FB83987277A86A16375633E56DA /* Array+Foundation.swift */; };
 		CA81BDFAF0A3805F7D3236E0275CB0F5 /* SchedulerActionSetUnacknowledged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE9C4A30FDF89A872431FF27B1B9212 /* SchedulerActionSetUnacknowledged.swift */; };
 		CAAC857219784487A458542E38C56B14 /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B929ADF9A8E0CADA33E2B9FF9F8E8 /* Bit.swift */; };
-		CAC9663ED09748768AA98B946D9C32D5 /* LightHSLSetUnackowledged.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A1FE8434D2C4E73773D34D032AE6FE /* LightHSLSetUnackowledged.swift */; };
+		CAC9663ED09748768AA98B946D9C32D5 /* LightHSLSetUnacknowledged.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A1FE8434D2C4E73773D34D032AE6FE /* LightHSLSetUnacknowledged.swift */; };
 		CAE600667D44EEFA68FCB88CCBCE0358 /* SceneStoreUnacknowledged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83479B7BB96E10D455DC8227CAD5E980 /* SceneStoreUnacknowledged.swift */; };
 		CAEBF98CF773575054DE79FD253C6A27 /* ConfigModelSubscriptionVirtualAddressOverwrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8778DB2FFBCD5AC60E9CDA0A96016752 /* ConfigModelSubscriptionVirtualAddressOverwrite.swift */; };
 		CBC6960E32AADB6904A9FDA8533B40B0 /* RemoteProvisioningMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A334032ADD067E56EA0A6EF932153 /* RemoteProvisioningMessage.swift */; };
@@ -931,7 +931,7 @@
 		2BD0A27C33D9891C0F2B96EFBB18B988 /* ProvisioningPdu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProvisioningPdu.swift; sourceTree = "<group>"; };
 		2C6E02A3065530426CAFEB3CA16AB13E /* GenericPowerDefautGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GenericPowerDefautGet.swift; sourceTree = "<group>"; };
 		2C6F4B4EB01574968519C8CD8C332425 /* ConfigLowPowerNodePollTimeoutGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigLowPowerNodePollTimeoutGet.swift; sourceTree = "<group>"; };
-		2C8D9E2A8D67FC5E0AE422AF76E94940 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		2C8D9E2A8D67FC5E0AE422AF76E94940 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2C8FA5B94DDEEBE61AC0E978A156B41D /* SingleValueEncodingContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleValueEncodingContainer.swift; path = Sources/Encoder/SingleValueEncodingContainer.swift; sourceTree = "<group>"; };
 		2D1B3B6E8559DD28BF4BB05813758B48 /* Pods-nRF Mesh Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-nRF Mesh Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		2D3D1DBD32BDE73170D603E521437545 /* FirmwareDistributionFirmwareDelete.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FirmwareDistributionFirmwareDelete.swift; sourceTree = "<group>"; };
@@ -990,7 +990,7 @@
 		3F65995EB4DF34E0318A7690A8314982 /* HealthFault.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HealthFault.swift; sourceTree = "<group>"; };
 		3FBF5B8B8350270F1DFD675BDBA99B07 /* FirmwareDistributionClientHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FirmwareDistributionClientHandler.swift; sourceTree = "<group>"; };
 		408D0BC105B6440E2D3FAD3CD2402E44 /* ImageManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = iOSMcuManagerLibrary/Source/Managers/ImageManager.swift; sourceTree = "<group>"; };
-		409A40F21065BFF2199E91A10A27F9DA /* CryptoSwift-CryptoSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "CryptoSwift-CryptoSwift"; path = CryptoSwift.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		409A40F21065BFF2199E91A10A27F9DA /* CryptoSwift.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoSwift.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		411319EE544E1ADA38AEF179BA2CA4FD /* SensorSettingSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SensorSettingSet.swift; sourceTree = "<group>"; };
 		4163B50EA46FDA9FE480FB9C8A03E348 /* Model+Name.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Model+Name.swift"; sourceTree = "<group>"; };
 		418840D5992D30C3C3C755EF6A58FAE7 /* Cryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cryptor.swift; path = Sources/CryptoSwift/Cryptor.swift; sourceTree = "<group>"; };
@@ -1012,7 +1012,7 @@
 		487E249E7275A00482B31A27C023AF4E /* ConfigHeartbeatPublicationStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigHeartbeatPublicationStatus.swift; sourceTree = "<group>"; };
 		488CB0AFAAEEF6B262F5E8C0B06DF8A3 /* Digest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Digest.swift; path = Sources/CryptoSwift/Digest.swift; sourceTree = "<group>"; };
 		48A098394B681A2B694D5685C9C0CB63 /* AES.Cryptors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AES.Cryptors.swift; path = Sources/CryptoSwift/AES.Cryptors.swift; sourceTree = "<group>"; };
-		48A4A6EDC08C8AC933D0DCD507E9D173 /* ZIPFoundation */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ZIPFoundation; path = ZIPFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48A4A6EDC08C8AC933D0DCD507E9D173 /* ZIPFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZIPFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48F9592ACE4A49A282F9344129031459 /* TransitionTime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionTime.swift; sourceTree = "<group>"; };
 		4920E013E2C08F880694E7D11464BEE7 /* HealthAttentionSetUnacknowledged.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HealthAttentionSetUnacknowledged.swift; sourceTree = "<group>"; };
 		494BBB01FB0A4074114EFD9D7932FC30 /* TimeZoneStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TimeZoneStatus.swift; sourceTree = "<group>"; };
@@ -1023,7 +1023,7 @@
 		4B109C00A595080E45C92E56D00B31A3 /* Array+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Extension.swift"; path = "Sources/CryptoSwift/Array+Extension.swift"; sourceTree = "<group>"; };
 		4B1B42838ABCA0AA25FB78030E760095 /* LightCTLDefaultStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LightCTLDefaultStatus.swift; sourceTree = "<group>"; };
 		4BDDC228363AD698D9F768DEDE661804 /* nRFMeshProvision-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "nRFMeshProvision-umbrella.h"; sourceTree = "<group>"; };
-		4BE6D24D600BFC74286D1A8EC004BDCC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/ZIPFoundation/Resources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		4BE6D24D600BFC74286D1A8EC004BDCC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/ZIPFoundation/Resources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4BFD907B6BC69CEEDF9A716EF0C0EB87 /* SchedulerMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SchedulerMessage.swift; sourceTree = "<group>"; };
 		4C405A1BB76B2CF54B3FB3FAA355E6C1 /* ConfigNetKeyList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigNetKeyList.swift; sourceTree = "<group>"; };
 		4CFFB5CDD1CD094E20FC4A66EA5179B4 /* UInt16+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UInt16+Extension.swift"; path = "Sources/CryptoSwift/UInt16+Extension.swift"; sourceTree = "<group>"; };
@@ -1139,7 +1139,7 @@
 		735C031730D3B7ACBFB16A7FD8D5DA7E /* GenericPowerDefaultSetUnacknowledged.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GenericPowerDefaultSetUnacknowledged.swift; sourceTree = "<group>"; };
 		73D70BC3AA665C32CED001B7C7E85B61 /* ZIPFoundation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ZIPFoundation.modulemap; sourceTree = "<group>"; };
 		73E2AF575627F3CBDA4EFF96536EE944 /* FileSystemManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileSystemManager.swift; path = iOSMcuManagerLibrary/Source/Managers/FileSystemManager.swift; sourceTree = "<group>"; };
-		73FA65F431FF730708B23AB6FC8B2834 /* iOSMcuManagerLibrary */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iOSMcuManagerLibrary; path = iOSMcuManagerLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73FA65F431FF730708B23AB6FC8B2834 /* iOSMcuManagerLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSMcuManagerLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C61AC75214827D22605A9C7F526186 /* Padding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Padding.swift; path = Sources/CryptoSwift/Padding.swift; sourceTree = "<group>"; };
 		7602926D0A6CE88FEB1B21AC66478DDF /* Subtraction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Subtraction.swift; path = Sources/CryptoSwift/CS_BigInt/Subtraction.swift; sourceTree = "<group>"; };
 		763C5C70C650F902B6AAECAC2AF74066 /* ConfigBeaconGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigBeaconGet.swift; sourceTree = "<group>"; };
@@ -1159,7 +1159,7 @@
 		794F111119F09579421F16D128E79761 /* PKCS1v15.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKCS1v15.swift; path = Sources/CryptoSwift/PKCS/PKCS1v15.swift; sourceTree = "<group>"; };
 		798963B6F09C6691071A09660696D1A3 /* PrimeTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PrimeTest.swift; path = Sources/CryptoSwift/CS_BigInt/PrimeTest.swift; sourceTree = "<group>"; };
 		79BCF84E841BB07DBA18C5EFF4CC1010 /* HealthAttentionSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HealthAttentionSet.swift; sourceTree = "<group>"; };
-		79CB61BA02E784F7E6CBEB5920157A4B /* nRFMeshProvision.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = nRFMeshProvision.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		79CB61BA02E784F7E6CBEB5920157A4B /* nRFMeshProvision.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = nRFMeshProvision.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		79D5EB9231F8FF66A59F77AAFF88215C /* Provisioner+Node.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Provisioner+Node.swift"; sourceTree = "<group>"; };
 		79FA0BC59B79192BAE14091531F1FA09 /* IvIndex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IvIndex.swift; sourceTree = "<group>"; };
 		7A0C237F6D4D9F70DC4DD73469061250 /* McuMgrHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = McuMgrHeader.swift; path = iOSMcuManagerLibrary/Source/McuMgrHeader.swift; sourceTree = "<group>"; };
@@ -1256,7 +1256,7 @@
 		94443BBF85EE29FA83130F406B73C44E /* Generics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Generics.swift; path = Sources/CryptoSwift/Generics.swift; sourceTree = "<group>"; };
 		948FEA21A287DCAF683E38C976BB9E29 /* UnkeyedDecodingContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnkeyedDecodingContainer.swift; path = Sources/Decoder/UnkeyedDecodingContainer.swift; sourceTree = "<group>"; };
 		966A7AC4259DA71B32001F5049189FB3 /* LightHSLHueStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LightHSLHueStatus.swift; sourceTree = "<group>"; };
-		96886B2082606CD11CBFA83D7EEFCFCC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		96886B2082606CD11CBFA83D7EEFCFCC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9728A3EBB6AD30436A83D408C1E576AC /* NetworkPdu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkPdu.swift; sourceTree = "<group>"; };
 		976EBAE5FA06C9117853C18E5FCD61BC /* LightLightnessLinearSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LightLightnessLinearSet.swift; sourceTree = "<group>"; };
 		977A7F2A90BEBBBDBBAE7221FC609FE2 /* SceneRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SceneRange.swift; sourceTree = "<group>"; };
@@ -1272,7 +1272,7 @@
 		99525C609D395E95CFCD54D92B3054E0 /* ExclusionList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExclusionList.swift; sourceTree = "<group>"; };
 		997DD79D099C704A385B7BCE38BB06F3 /* ConfigVendorModelSubscriptionGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigVendorModelSubscriptionGet.swift; sourceTree = "<group>"; };
 		99CEF59C24FF7647DE35CE186BB50767 /* SensorStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SensorStatus.swift; sourceTree = "<group>"; };
-		99F4A9428724D15042D10C670D973833 /* Pods-nRF Mesh */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-nRF Mesh"; path = Pods_nRF_Mesh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99F4A9428724D15042D10C670D973833 /* Pods_nRF_Mesh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nRF_Mesh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEEA9B6B2A17086FC0A423D1D3D71BC /* Authenticator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Authenticator.swift; path = Sources/CryptoSwift/Authenticator.swift; sourceTree = "<group>"; };
 		9AEF94156048B70FD9040731B501B734 /* PrivateNodeIdentityStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrivateNodeIdentityStatus.swift; sourceTree = "<group>"; };
 		9B08FAEF3B9B36BF2A364CA660AF7A90 /* Hashable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Hashable.swift; path = Sources/CryptoSwift/CS_BigInt/Hashable.swift; sourceTree = "<group>"; };
@@ -1283,7 +1283,7 @@
 		9CCB25939F1585E0E1FC53A9C8D757DE /* GenericLevelGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GenericLevelGet.swift; sourceTree = "<group>"; };
 		9D3149346614036A4190DB2901B61751 /* ConfigurationServerHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigurationServerHandler.swift; sourceTree = "<group>"; };
 		9D7A8F92745D5C545199B4388080C084 /* ConfigSIGModelAppGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigSIGModelAppGet.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DB27DD2C3351CC15E52A592AD06D227 /* Updatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Updatable.swift; path = Sources/CryptoSwift/Updatable.swift; sourceTree = "<group>"; };
 		9E1E2E2F595CC3CC7147ADCF9FEC51EF /* Element+Scenes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Element+Scenes.swift"; sourceTree = "<group>"; };
 		9F6C8F89B3E672011A4E390EF144EA17 /* CTR.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CTR.swift; path = Sources/CryptoSwift/BlockMode/CTR.swift; sourceTree = "<group>"; };
@@ -1344,7 +1344,7 @@
 		B34A87908A175FAAF8D79EE2F51BA47F /* PCBC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PCBC.swift; path = Sources/CryptoSwift/BlockMode/PCBC.swift; sourceTree = "<group>"; };
 		B40148F8B0A39BE90FFBA0A94EBBD562 /* StringConversion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringConversion.swift; path = Sources/CryptoSwift/CS_BigInt/StringConversion.swift; sourceTree = "<group>"; };
 		B4BA2A2C844BF30FB2B7583208CFE70B /* ApplicationKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationKeys.swift; sourceTree = "<group>"; };
-		B4C001B7D2FB9649EC19C565872AF0D8 /* nRFMeshProvision */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = nRFMeshProvision; path = NordicMesh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4C001B7D2FB9649EC19C565872AF0D8 /* NordicMesh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NordicMesh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C9B1248650C2D1A8A20689E0E17CCB /* LightLightnessRangeSetUnacknowledged.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LightLightnessRangeSetUnacknowledged.swift; sourceTree = "<group>"; };
 		B4E4D184485CA96B3C97B95972C6C373 /* Date+ZIP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+ZIP.swift"; path = "Sources/ZIPFoundation/Date+ZIP.swift"; sourceTree = "<group>"; };
 		B6C4F54FFF28CEF14E053C1CD2997E31 /* BlockModeOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockModeOptions.swift; path = Sources/CryptoSwift/BlockMode/BlockModeOptions.swift; sourceTree = "<group>"; };
@@ -1395,12 +1395,12 @@
 		C8CB913068E845C2678C7132FFB53620 /* FirmwareDistributionUploadStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FirmwareDistributionUploadStatus.swift; sourceTree = "<group>"; };
 		C958BDF784EAD062421B801DF6B30D78 /* FirmwareUpgradeMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FirmwareUpgradeMode.swift; path = iOSMcuManagerLibrary/Source/Managers/DFU/FirmwareUpgradeMode.swift; sourceTree = "<group>"; };
 		C98323097692EBC3038FDC8DD4AA4045 /* Model+Keys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Model+Keys.swift"; sourceTree = "<group>"; };
-		C9A1FE8434D2C4E73773D34D032AE6FE /* LightHSLSetUnackowledged.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LightHSLSetUnackowledged.swift; sourceTree = "<group>"; };
+		C9A1FE8434D2C4E73773D34D032AE6FE /* LightHSLSetUnacknowledged.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LightHSLSetUnacknowledged.swift; sourceTree = "<group>"; };
 		C9DCF31BC8A62FBDCF041C2E5E922A0C /* iOSMcuManagerLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSMcuManagerLibrary.debug.xcconfig; sourceTree = "<group>"; };
 		C9F8FB78A280B0E353E2387E38CBA784 /* LightCTLStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LightCTLStatus.swift; sourceTree = "<group>"; };
 		C9F95C5F9C2A22045157094B49927FC2 /* Entry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Entry.swift; path = Sources/ZIPFoundation/Entry.swift; sourceTree = "<group>"; };
-		CA4A114775B98CEA4A566C18123B145F /* ZIPFoundation-ZIPFoundation_Privacy */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "ZIPFoundation-ZIPFoundation_Privacy"; path = ZIPFoundation_Privacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA80C0D59F7A865DBC76AA728C8C3E0F /* Pods-nRF Mesh Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-nRF Mesh Tests"; path = Pods_nRF_Mesh_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA4A114775B98CEA4A566C18123B145F /* ZIPFoundation_Privacy.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZIPFoundation_Privacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA80C0D59F7A865DBC76AA728C8C3E0F /* Pods_nRF_Mesh_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nRF_Mesh_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE2C96926EE82533C69EF4AB30AA306 /* KeySet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KeySet.swift; sourceTree = "<group>"; };
 		CAF57B11B82FFB2798D143E5426EB2C4 /* PrivateBeacon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrivateBeacon.swift; sourceTree = "<group>"; };
 		CB0FD07A5DB57028FE7311A57AFC95C3 /* ConfigFriendGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigFriendGet.swift; sourceTree = "<group>"; };
@@ -1414,11 +1414,11 @@
 		CCF6C1BB6F9888CB38347B952177B9A2 /* LightCTLTemperatureRangeGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LightCTLTemperatureRangeGet.swift; sourceTree = "<group>"; };
 		CD12710EF3E1ED5757424BF26E3A2063 /* Location.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		CD8F7EB3E647E0EC1797BB16B1A82D78 /* MeshNetwork+IvIndex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MeshNetwork+IvIndex.swift"; sourceTree = "<group>"; };
-		CE09E24D8F193EB05E20CB2CD76EA1A7 /* SwiftCBOR */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftCBOR; path = SwiftCBOR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE09E24D8F193EB05E20CB2CD76EA1A7 /* SwiftCBOR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftCBOR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4851A9BA6CA810D32886C5212A4C76 /* Poly1305.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Poly1305.swift; path = Sources/CryptoSwift/Poly1305.swift; sourceTree = "<group>"; };
 		CE534AF3933D71500FFD5512EB84935C /* Cipher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cipher.swift; path = Sources/CryptoSwift/Cipher.swift; sourceTree = "<group>"; };
 		CEEB010384EEAAE359EC0578F951A475 /* GenericPowerDefaultSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GenericPowerDefaultSet.swift; sourceTree = "<group>"; };
-		CF0BDAA5019AA4E39BB5F957E1102923 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/CryptoSwift/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		CF0BDAA5019AA4E39BB5F957E1102923 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/CryptoSwift/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D004F5A810232426DDDC6192A7F998D4 /* FirmwareDistributionStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FirmwareDistributionStatus.swift; sourceTree = "<group>"; };
 		D0CF7A2F475B645E562841090FE777F5 /* ConfigRelayGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigRelayGet.swift; sourceTree = "<group>"; };
 		D18AB564D491B2BF65E769B8FB0865CD /* Pods-nRF Mesh-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-nRF Mesh-Info.plist"; sourceTree = "<group>"; };
@@ -1487,7 +1487,7 @@
 		EC47D41CE776CD06F23B1ABAF2878CD2 /* CryptoSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CryptoSwift-dummy.m"; sourceTree = "<group>"; };
 		ECD88722F667E98BAE145AC332DECF09 /* GenericPowerLevelGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GenericPowerLevelGet.swift; sourceTree = "<group>"; };
 		EDA5FC5E474C32E7793290901356B716 /* HKDF.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HKDF.swift; path = Sources/CryptoSwift/HKDF.swift; sourceTree = "<group>"; };
-		EDA795D5887FCC2CE9C44AA95545D6E0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Library/Resources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		EDA795D5887FCC2CE9C44AA95545D6E0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Library/Resources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EE29DF4A5601C090EFE504A240800E19 /* Publish+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Publish+Utils.swift"; sourceTree = "<group>"; };
 		EE3DD6598868361E457F3B5DF0B605E6 /* LightHSLRangeGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LightHSLRangeGet.swift; sourceTree = "<group>"; };
 		EE53AE5CD08507EE5423F047DCD2C2A1 /* BlockEncryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockEncryptor.swift; path = Sources/CryptoSwift/BlockEncryptor.swift; sourceTree = "<group>"; };
@@ -1502,10 +1502,10 @@
 		F0C4F434C0EE4E095DE08ED52929BF3D /* ISO10126Padding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ISO10126Padding.swift; path = Sources/CryptoSwift/ISO10126Padding.swift; sourceTree = "<group>"; };
 		F0D585268F1400201BDB1840E0AE280C /* ClosedRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ClosedRange.swift; sourceTree = "<group>"; };
 		F155F4E96F32FCFF0263A0F22598B4F2 /* GenericLocationGlobalGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GenericLocationGlobalGet.swift; sourceTree = "<group>"; };
-		F1B51AE7DF94A999A6A1D9E1019629B4 /* Documentation.docc */ = {isa = PBXFileReference; includeInIndex = 1; name = Documentation.docc; path = Library/Documentation.docc; sourceTree = "<group>"; };
+		F1B51AE7DF94A999A6A1D9E1019629B4 /* Documentation.docc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.documentationcatalog; name = Documentation.docc; path = Library/Documentation.docc; sourceTree = "<group>"; };
 		F1B94CDA2D4C5500B1EDF2D07A5C380C /* ConfigNetKeyAdd.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigNetKeyAdd.swift; sourceTree = "<group>"; };
 		F24F500A892F9F0321162A72FB14D4A9 /* Element+Keys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Element+Keys.swift"; sourceTree = "<group>"; };
-		F2B4756E2C21F882362AD8AF85FD6727 /* nRFMeshProvision-PrivacyInfo */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "nRFMeshProvision-PrivacyInfo"; path = PrivacyInfo.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2B4756E2C21F882362AD8AF85FD6727 /* PrivacyInfo.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivacyInfo.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		F36A334032ADD067E56EA0A6EF932153 /* RemoteProvisioningMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RemoteProvisioningMessage.swift; sourceTree = "<group>"; };
 		F4009258DE0487BA205FAEFDC603F744 /* ConfigGATTProxyStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigGATTProxyStatus.swift; sourceTree = "<group>"; };
 		F434D4F76AC128B5ABFDFBD4F07AE18C /* iOSMcuManagerLibrary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSMcuManagerLibrary-umbrella.h"; sourceTree = "<group>"; };
@@ -1518,7 +1518,7 @@
 		F6F9D50055E4D5C780FCADCBF8C02A95 /* LightCTLDefaultGet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LightCTLDefaultGet.swift; sourceTree = "<group>"; };
 		F7534DB40E4FE7080C35157EBDBB9C43 /* ConfigNetworkTransmitStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigNetworkTransmitStatus.swift; sourceTree = "<group>"; };
 		F7BAEFE8955CA3975771D136A88A9E91 /* nRFMeshProvision.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = nRFMeshProvision.modulemap; sourceTree = "<group>"; };
-		F81274EDB681F11E7CB05F7DCA2BB33C /* CryptoSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CryptoSwift; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81274EDB681F11E7CB05F7DCA2BB33C /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B1AB350644DA0EC6AEA245983C26B8 /* CryptoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CryptoSwift.release.xcconfig; sourceTree = "<group>"; };
 		F8D3E9D7DE394B4F6258A6BC31A2FC83 /* Bearer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		F926561A72F672B66977CABEDCE88791 /* ConfigModelSubscriptionStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfigModelSubscriptionStatus.swift; sourceTree = "<group>"; };
@@ -1637,7 +1637,6 @@
 				99A66619BBD6617986A0FFBE9E401394 /* Remote Provisioning */,
 				35D39731099CBB322891FDE4C53D4CA0 /* SAR Configuration */,
 			);
-			name = Foundation;
 			path = Foundation;
 			sourceTree = "<group>";
 		};
@@ -1663,7 +1662,6 @@
 				FA8CF011584FF4C326259AA5E246ECF1 /* SensorSettingStatus.swift */,
 				99CEF59C24FF7647DE35CE186BB50767 /* SensorStatus.swift */,
 			);
-			name = Sensors;
 			path = Sensors;
 			sourceTree = "<group>";
 		};
@@ -1773,7 +1771,6 @@
 				92F7C42C2CDCBE2DF9C7F98FC81DA90D /* UTI.swift */,
 				D83A97098572AB562C52A75F0FF33EC0 /* Support Files */,
 			);
-			name = iOSMcuManagerLibrary;
 			path = iOSMcuManagerLibrary;
 			sourceTree = "<group>";
 		};
@@ -1805,7 +1802,6 @@
 				A698376B7C94950630153C0DB4E3C8DD /* SarTransmitterSet.swift */,
 				6C27445E1784D9E1990CAC760164DB4E /* SarTransmitterStatus.swift */,
 			);
-			name = "SAR Configuration";
 			path = "SAR Configuration";
 			sourceTree = "<group>";
 		};
@@ -1829,7 +1825,6 @@
 				39FA9642236BFD725F1B65D0FBEA8F4C /* HealthPeriodSetUnacknowledged.swift */,
 				D519A5A58BE05901D2C4449880E7CCE3 /* HealthPeriodStatus.swift */,
 			);
-			name = Health;
 			path = Health;
 			sourceTree = "<group>";
 		};
@@ -1840,7 +1835,6 @@
 				AC5A801CF2AECD55496624553E6881BA /* AccessLayer.swift */,
 				12E2856ED6FF4E56A3B9B0E69D08A2BB /* AccessPdu.swift */,
 			);
-			name = "Access Layer";
 			path = "Access Layer";
 			sourceTree = "<group>";
 		};
@@ -1961,7 +1955,6 @@
 				997DD79D099C704A385B7BCE38BB06F3 /* ConfigVendorModelSubscriptionGet.swift */,
 				BD32536A291B80B3F933FC25994C8C93 /* ConfigVendorModelSubscriptionList.swift */,
 			);
-			name = Configuration;
 			path = Configuration;
 			sourceTree = "<group>";
 		};
@@ -1994,7 +1987,6 @@
 				6952B979F134CCE8990149506BC8FD3F /* SegmentedControlMessage.swift */,
 				611D6BC672D74FFBCDA6BC3C8AB1DCD4 /* SegmentedMessage.swift */,
 			);
-			name = "Lower Transport Layer";
 			path = "Lower Transport Layer";
 			sourceTree = "<group>";
 		};
@@ -2050,7 +2042,7 @@
 				3695EC13C7E28E2FEA6C3656D32A2AA8 /* LightHSLSaturationSetUnacknowledged.swift */,
 				7DA002395E600C0023D9C81714656552 /* LightHSLSaturationStatus.swift */,
 				E13ECA82D10361DBE5FECFDEFD8E3168 /* LightHSLSet.swift */,
-				C9A1FE8434D2C4E73773D34D032AE6FE /* LightHSLSetUnackowledged.swift */,
+				C9A1FE8434D2C4E73773D34D032AE6FE /* LightHSLSetUnacknowledged.swift */,
 				68D410E2E7676E1061AB5B244FFAC6D1 /* LightHSLStatus.swift */,
 				012748405E255028E78A123292EF2ABB /* LightHSLTargetGet.swift */,
 				AFDCE2F91AA338F3A39AEDF442D69871 /* LightHSLTargetStatus.swift */,
@@ -2089,7 +2081,6 @@
 				296F48F482D20205D8D0515937FD64C6 /* LightLightnessSetUnacknowledged.swift */,
 				7E0763A108A7D39B98E3ABF85E98BB46 /* LightLightnessStatus.swift */,
 			);
-			name = Lighting;
 			path = Lighting;
 			sourceTree = "<group>";
 		};
@@ -2166,7 +2157,6 @@
 				A49F4F57E3D3524C8FC61222D2A83425 /* Util.swift */,
 				B3F1744AAD9C42BEE147961286B13C49 /* Support Files */,
 			);
-			name = SwiftCBOR;
 			path = SwiftCBOR;
 			sourceTree = "<group>";
 		};
@@ -2196,7 +2186,6 @@
 				B6CF933F504BA7DE7086578C74B2988C /* TimeZoneSet.swift */,
 				494BBB01FB0A4074114EFD9D7932FC30 /* TimeZoneStatus.swift */,
 			);
-			name = "Time and Scenes";
 			path = "Time and Scenes";
 			sourceTree = "<group>";
 		};
@@ -2223,7 +2212,6 @@
 				0FCA4C18C4F39D33D7EB3BE4E3332550 /* SecureNetworkBeacon.swift */,
 				8EC1563F40CF8AB946D07DC2A53BEC2B /* UnprovisionedDeviceBeacon.swift */,
 			);
-			name = "Network Layer";
 			path = "Network Layer";
 			sourceTree = "<group>";
 		};
@@ -2234,7 +2222,6 @@
 				7B64EC2678BC0606CD3DC5F20AE9295E /* UpperTransportLayer.swift */,
 				1A520A4F3D9208E3D71146DDC71FD8D8 /* UpperTransportPdu.swift */,
 			);
-			name = "Upper Transport Layer";
 			path = "Upper Transport Layer";
 			sourceTree = "<group>";
 		};
@@ -2306,7 +2293,6 @@
 				ABE6C6DD67966C956261CD85E9C39AFA /* Resources */,
 				3CCCAF2969CA12107479805EDE672ED1 /* Support Files */,
 			);
-			name = ZIPFoundation;
 			path = ZIPFoundation;
 			sourceTree = "<group>";
 		};
@@ -2429,7 +2415,6 @@
 				FEFDDCB40529D7FB3D1F0FCD42FDBA75 /* Resources */,
 				E138FAE1032D0BE6DEB65C4834C49611 /* Support Files */,
 			);
-			name = CryptoSwift;
 			path = CryptoSwift;
 			sourceTree = "<group>";
 		};
@@ -2442,7 +2427,6 @@
 				0C89B9C42D70A30962803F719B2F0585 /* RemoveAddressesFromFilter.swift */,
 				CB8E2FD3FE94178C2BFC4BE82F05F75B /* SetFilterType.swift */,
 			);
-			name = "Proxy Configuration";
 			path = "Proxy Configuration";
 			sourceTree = "<group>";
 		};
@@ -2495,7 +2479,6 @@
 				44999FB6FA9DA2AAA60257006A4BFC59 /* FirmwareUpdateStart.swift */,
 				9B1149B21423EC831E8BA2DA45137838 /* FirmwareUpdateStatus.swift */,
 			);
-			name = DFU;
 			path = DFU;
 			sourceTree = "<group>";
 		};
@@ -2520,7 +2503,6 @@
 				10EECCD39E98087591851CB2BAAD825B /* RemoteProvisioningScanStatus.swift */,
 				2A2AAA40556A19BCCEC65E86FE8881CF /* RemoteProvisioningScanStop.swift */,
 			);
-			name = "Remote Provisioning";
 			path = "Remote Provisioning";
 			sourceTree = "<group>";
 		};
@@ -2537,23 +2519,22 @@
 				DE5A4C63E4085AB2DB3953D084410231 /* PrivateNodeIdentitySet.swift */,
 				9AEF94156048B70FD9040731B501B734 /* PrivateNodeIdentityStatus.swift */,
 			);
-			name = "Private Beacon";
 			path = "Private Beacon";
 			sourceTree = "<group>";
 		};
 		A8DD2740A12488B63818C94FA4E4C977 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F81274EDB681F11E7CB05F7DCA2BB33C /* CryptoSwift */,
-				409A40F21065BFF2199E91A10A27F9DA /* CryptoSwift-CryptoSwift */,
-				73FA65F431FF730708B23AB6FC8B2834 /* iOSMcuManagerLibrary */,
-				B4C001B7D2FB9649EC19C565872AF0D8 /* nRFMeshProvision */,
-				F2B4756E2C21F882362AD8AF85FD6727 /* nRFMeshProvision-PrivacyInfo */,
-				99F4A9428724D15042D10C670D973833 /* Pods-nRF Mesh */,
-				CA80C0D59F7A865DBC76AA728C8C3E0F /* Pods-nRF Mesh Tests */,
-				CE09E24D8F193EB05E20CB2CD76EA1A7 /* SwiftCBOR */,
-				48A4A6EDC08C8AC933D0DCD507E9D173 /* ZIPFoundation */,
-				CA4A114775B98CEA4A566C18123B145F /* ZIPFoundation-ZIPFoundation_Privacy */,
+				F81274EDB681F11E7CB05F7DCA2BB33C /* CryptoSwift.framework */,
+				409A40F21065BFF2199E91A10A27F9DA /* CryptoSwift.bundle */,
+				73FA65F431FF730708B23AB6FC8B2834 /* iOSMcuManagerLibrary.framework */,
+				B4C001B7D2FB9649EC19C565872AF0D8 /* NordicMesh.framework */,
+				F2B4756E2C21F882362AD8AF85FD6727 /* PrivacyInfo.bundle */,
+				99F4A9428724D15042D10C670D973833 /* Pods_nRF_Mesh.framework */,
+				CA80C0D59F7A865DBC76AA728C8C3E0F /* Pods_nRF_Mesh_Tests.framework */,
+				CE09E24D8F193EB05E20CB2CD76EA1A7 /* SwiftCBOR.framework */,
+				48A4A6EDC08C8AC933D0DCD507E9D173 /* ZIPFoundation.framework */,
+				CA4A114775B98CEA4A566C18123B145F /* ZIPFoundation_Privacy.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2637,7 +2618,6 @@
 			children = (
 				F967D905F6484DE7086F36CADFF2A50C /* PBRemoteBearer.swift */,
 			);
-			name = Remote;
 			path = Remote;
 			sourceTree = "<group>";
 		};
@@ -2714,7 +2694,6 @@
 				5244CC97735D8C0DE70217FD4644B4ED /* GenericPowerRangeSetUnacknowledged.swift */,
 				39AAAA7B07A2C06179698E5541FFD6BA /* GenericPowerRangeStatus.swift */,
 			);
-			name = Generic;
 			path = Generic;
 			sourceTree = "<group>";
 		};
@@ -2732,7 +2711,6 @@
 				ACE33246C0EE41CB65916440FF125495 /* SarConfigurationClientHandler.swift */,
 				873245293A8B0CF5F07451439330B569 /* SceneClientHandler.swift */,
 			);
-			name = "Foundation Layer";
 			path = "Foundation Layer";
 			sourceTree = "<group>";
 		};
@@ -2754,7 +2732,6 @@
 				91373EB7FA7DE95016E5D468B1AC0946 /* PBGattBearer.swift */,
 				5F108AE23E39DC06F0E32BF1F02275C4 /* ProxyProtocolHandler.swift */,
 			);
-			name = GATT;
 			path = GATT;
 			sourceTree = "<group>";
 		};
@@ -2900,7 +2877,7 @@
 			);
 			name = SwiftCBOR;
 			productName = SwiftCBOR;
-			productReference = CE09E24D8F193EB05E20CB2CD76EA1A7 /* SwiftCBOR */;
+			productReference = CE09E24D8F193EB05E20CB2CD76EA1A7 /* SwiftCBOR.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		99313990C1D76A6D1D017868B6975CC8 /* CryptoSwift */ = {
@@ -2919,7 +2896,7 @@
 			);
 			name = CryptoSwift;
 			productName = CryptoSwift;
-			productReference = F81274EDB681F11E7CB05F7DCA2BB33C /* CryptoSwift */;
+			productReference = F81274EDB681F11E7CB05F7DCA2BB33C /* CryptoSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		AA15C8469D67684160CC2A7098EB841C /* ZIPFoundation */ = {
@@ -2938,7 +2915,7 @@
 			);
 			name = ZIPFoundation;
 			productName = ZIPFoundation;
-			productReference = 48A4A6EDC08C8AC933D0DCD507E9D173 /* ZIPFoundation */;
+			productReference = 48A4A6EDC08C8AC933D0DCD507E9D173 /* ZIPFoundation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		AE6E4A032845604C9189530A41B8A3AC /* iOSMcuManagerLibrary */ = {
@@ -2958,7 +2935,7 @@
 			);
 			name = iOSMcuManagerLibrary;
 			productName = iOSMcuManagerLibrary;
-			productReference = 73FA65F431FF730708B23AB6FC8B2834 /* iOSMcuManagerLibrary */;
+			productReference = 73FA65F431FF730708B23AB6FC8B2834 /* iOSMcuManagerLibrary.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C55C8C96A59EE76A4638D61F44E12DF6 /* Pods-nRF Mesh Tests */ = {
@@ -2977,7 +2954,7 @@
 			);
 			name = "Pods-nRF Mesh Tests";
 			productName = Pods_nRF_Mesh_Tests;
-			productReference = CA80C0D59F7A865DBC76AA728C8C3E0F /* Pods-nRF Mesh Tests */;
+			productReference = CA80C0D59F7A865DBC76AA728C8C3E0F /* Pods_nRF_Mesh_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C7A8D82E407CD3FDC3BA55CEE519B252 /* ZIPFoundation-ZIPFoundation_Privacy */ = {
@@ -2994,7 +2971,7 @@
 			);
 			name = "ZIPFoundation-ZIPFoundation_Privacy";
 			productName = ZIPFoundation_Privacy;
-			productReference = CA4A114775B98CEA4A566C18123B145F /* ZIPFoundation-ZIPFoundation_Privacy */;
+			productReference = CA4A114775B98CEA4A566C18123B145F /* ZIPFoundation_Privacy.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		DBF639A39D1896128BCA040EDD84174E /* nRFMeshProvision */ = {
@@ -3014,7 +2991,7 @@
 			);
 			name = nRFMeshProvision;
 			productName = NordicMesh;
-			productReference = B4C001B7D2FB9649EC19C565872AF0D8 /* nRFMeshProvision */;
+			productReference = B4C001B7D2FB9649EC19C565872AF0D8 /* NordicMesh.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EBC10B6451F5FE5244D138B5176C2A02 /* CryptoSwift-CryptoSwift */ = {
@@ -3031,7 +3008,7 @@
 			);
 			name = "CryptoSwift-CryptoSwift";
 			productName = CryptoSwift;
-			productReference = 409A40F21065BFF2199E91A10A27F9DA /* CryptoSwift-CryptoSwift */;
+			productReference = 409A40F21065BFF2199E91A10A27F9DA /* CryptoSwift.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		FE9A7A7292F5AFCEEC420BFA81C650C0 /* Pods-nRF Mesh */ = {
@@ -3054,7 +3031,7 @@
 			);
 			name = "Pods-nRF Mesh";
 			productName = Pods_nRF_Mesh;
-			productReference = 99F4A9428724D15042D10C670D973833 /* Pods-nRF Mesh */;
+			productReference = 99F4A9428724D15042D10C670D973833 /* Pods_nRF_Mesh.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		FF713C26E3DCEABD707975F2EC98608B /* nRFMeshProvision-PrivacyInfo */ = {
@@ -3071,7 +3048,7 @@
 			);
 			name = "nRFMeshProvision-PrivacyInfo";
 			productName = PrivacyInfo;
-			productReference = F2B4756E2C21F882362AD8AF85FD6727 /* nRFMeshProvision-PrivacyInfo */;
+			productReference = F2B4756E2C21F882362AD8AF85FD6727 /* PrivacyInfo.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -3092,8 +3069,6 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = A8DD2740A12488B63818C94FA4E4C977 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -3124,7 +3099,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B41276D6865E0A584B8922ABE3C45376 /* ZIPFoundation-ZIPFoundation_Privacy in Resources */,
+				B41276D6865E0A584B8922ABE3C45376 /* ZIPFoundation_Privacy.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3161,7 +3136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				407C079501FF086F096771C1EB199E55 /* CryptoSwift-CryptoSwift in Resources */,
+				407C079501FF086F096771C1EB199E55 /* CryptoSwift.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3688,7 +3663,7 @@
 				144F3E557F2FA86002E541F597C2B39C /* LightHSLSaturationSetUnacknowledged.swift in Sources */,
 				FFC6519EE637980888331BED46A5F8E2 /* LightHSLSaturationStatus.swift in Sources */,
 				539CB9EE49B4A172FB8445204FAF2CB8 /* LightHSLSet.swift in Sources */,
-				CAC9663ED09748768AA98B946D9C32D5 /* LightHSLSetUnackowledged.swift in Sources */,
+				CAC9663ED09748768AA98B946D9C32D5 /* LightHSLSetUnacknowledged.swift in Sources */,
 				6926F171956CED07D818E195D885B39C /* LightHSLStatus.swift in Sources */,
 				1135AABB67E7354AA3A40BE8CC8200E7 /* LightHSLTargetGet.swift in Sources */,
 				50CC92D2C293AF24DD2B277776EA7C38 /* LightHSLTargetStatus.swift in Sources */,
