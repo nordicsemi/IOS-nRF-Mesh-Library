@@ -37,7 +37,9 @@ internal struct HeartbeatMessage {
     let opCode: UInt8
     /// The Unicast Address of the originating Node.
     let source: Address
-    /// The destination Address. This can be either Unicast or Group Address.
+    /// The destination Address.
+    ///
+    /// This can be either Unicast or Group Address.
     let destination: Address
     /// Currently active features of the Node.
     ///

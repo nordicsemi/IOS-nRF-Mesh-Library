@@ -50,6 +50,8 @@ public class MeshNetworkManager: NetworkParametersProvider {
     public weak var delegate: MeshNetworkDelegate?
     /// The delegate will be created when the Attention Timer is started by a remote Node.
     public weak var attentionTimerDelegate: AttentionTimerDelegate?
+    /// Optional delegate notified when a Bluetooth Mesh Heartbeat is received.
+    public weak var heartbeatDelegate: MeshHeartbeatDelegate?
     /// The sender object should send PDUs created by the manager
     /// using any Bearer.
     public weak var transmitter: Transmitter? {
@@ -1174,6 +1176,25 @@ extension MeshNetworkManager: NetworkManagerDelegate {
         delegateQueue.async {
             self.delegate?.meshNetworkManager(self, didReceiveMessage: message,
                                               sentFrom: source, to: destination)
+        }
+    }
+    
+    func networkManager(_ manager: NetworkManager, didReceiveHeartbeat heartbeat: HeartbeatMessage) {
+        // Skip, if no delegate set.
+        guard let delegate = heartbeatDelegate else {
+            return
+        }
+        let exported = MeshHeartbeat(
+            source: heartbeat.source,
+            destination: heartbeat.destination,
+            initialTtl: heartbeat.initialTtl,
+            receivedTtl: heartbeat.receivedTtl!, // This is not nil for incoming heartbeats.
+            hops: heartbeat.hops,
+            features: heartbeat.features,
+            timestamp: Date()
+        )
+        delegateQueue.async {
+            delegate.meshNetworkManager(self, didReceiveHeartbeat: exported)
         }
     }
     

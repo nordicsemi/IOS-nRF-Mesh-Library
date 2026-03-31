@@ -55,6 +55,14 @@ internal protocol NetworkManagerDelegate: AnyObject {
                         didReceiveMessage message: MeshMessage,
                         sentFrom source: Address, to destination: MeshAddress)
     
+    /// A callback called when a Heartbeat message is received from the mesh network.
+    ///
+    /// - parameters:
+    ///   - manager: The manager which has received the message.
+    ///   - heartbeat: The received Heartbeat message.
+    func networkManager(_ manager: NetworkManager,
+                        didReceiveHeartbeat heartbeat: HeartbeatMessage)
+    
     /// A callback called when an unsegmented message was sent to the
     /// ``Transmitter``, or when all segments of a segmented message targeting
     /// a Unicast Address were acknowledged by the target Node.

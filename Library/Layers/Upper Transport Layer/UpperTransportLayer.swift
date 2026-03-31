@@ -84,6 +84,9 @@ internal class UpperTransportLayer {
                 if let heartbeat = HeartbeatMessage(fromControlMessage: controlMessage) {
                     logger?.i(.upperTransport, "\(heartbeat) received from 0x\(heartbeat.source.hex)")
                     handle(heartbeat: heartbeat)
+
+                    // Emit to app-level delegate (if desired).
+                    networkManager.delegate?.networkManager(networkManager, didReceiveHeartbeat: heartbeat)
                 }
             default:
                 logger?.w(.upperTransport, "Unsupported Control Message received (opCode: 0x\(controlMessage.opCode.hex))")
