@@ -180,6 +180,11 @@ Provisioning is the process of adding an unprovisioned device to a mesh network 
 - ``NodeFeatures``
 - ``NodeFeaturesState``
 
+### IV Index
+
+- ``IvIndex``
+- ``IvIndexObserver``
+
 ### Beacons
 
 - ``NodeIdentity``
@@ -336,6 +341,11 @@ Provisioning is the process of adding an unprovisioned device to a mesh network 
 - ``ConfigModelSubscriptionDeleteAll``
 - ``ConfigModelSubscriptionStatus``
 
+### Heartbeats
+
+- ``MeshHeartbeat``
+- ``MeshHeartbeatDelegate``
+
 ### Configuration - Heartbeats
 
 - ``HeartbeatPublication``
@@ -446,7 +456,9 @@ Provisioning is the process of adding an unprovisioned device to a mesh network 
 - ``FirmwareUpdateMessageStatus``
 - ``FirmwareUpdateAdditionalInformation``
 - ``FirmwareDistributionMessageStatus``
+- ``FirmwareDistributionStatusMessage``
 - ``BLOBTransferMessageStatus``
+- ``FirmwareInformation``
 
 - ``FirmwareUpdatePhase``
 - ``FirmwareDistributionPhase``
@@ -752,3 +764,4 @@ Proxy Server, a proxy filter can be used.
 ### Other
 
 - ``DataConvertible``
+- ``BigUInt``
