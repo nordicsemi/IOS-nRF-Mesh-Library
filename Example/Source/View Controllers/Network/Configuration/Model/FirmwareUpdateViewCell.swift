@@ -96,7 +96,7 @@ class FirmwareUpdateViewCell: ModelViewCell {
                 updateTtlLabel.text = "\(ttl)"
                 additionalInformationLabel.text = "\(additionalInformation)"
                 updateTimeoutBaseLabel.text = "\(timeoutBase)"
-                blobIdLabel.text = "\(blobId)"
+                blobIdLabel.text = "\(blobId.asString())"
                 imageIndexLabel.text = "\(imageIndex)"
             } else {
                 updateTtlLabel.text = "N/A"
@@ -113,6 +113,23 @@ class FirmwareUpdateViewCell: ModelViewCell {
         }
     }
 
+}
+
+private extension UInt64 {
+    
+    /// Returns the hexadecimal string representation of the value, padded to 16 characters.
+    func asString() -> String {
+        return String(format: "0x%016X", self)
+    }
+    
+    
+    /// Returns the `UInt64` as `String` in HEX format.
+    ///
+    /// Example: "0011223344556677"
+    var hex: String {
+        return String(format: "%016X", self)
+    }
+    
 }
 
 private extension FirmwareUpdateViewCell {
