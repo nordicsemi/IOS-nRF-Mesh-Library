@@ -138,12 +138,12 @@ class SettingsViewController: UITableViewController {
             presentResetConfirmation()
         }
         if indexPath.isLinkToGitHub {
-            if let url = URL(string: "https://github.com/NordicSemiconductor/IOS-nRF-Mesh-Library") {
+            if let url = URL(string: "https://github.com/nordicsemi/IOS-nRF-Mesh-Library") {
                 UIApplication.shared.open(url)
             }
         }
         if indexPath.isLinkToIssues {
-            if let url = URL(string: "https://github.com/NordicSemiconductor/IOS-nRF-Mesh-Library/issues") {
+            if let url = URL(string: "https://github.com/nordicsemi/IOS-nRF-Mesh-Library/issues") {
                 UIApplication.shared.open(url)
             }
         }

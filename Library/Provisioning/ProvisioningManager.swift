@@ -104,7 +104,7 @@ public class ProvisioningManager {
     /// The default implementation is sufficient for most cases. Use your own
     /// implementation if you need to know the value beforehand.
     /// - since: 4.0.0
-    /// - seeAlso: https://github.com/NordicSemiconductor/IOS-nRF-Mesh-Library/pull/435
+    /// - seeAlso: https://github.com/nordicsemi/IOS-nRF-Mesh-Library/pull/435
     public var inputActionValueGenerator: InputActionValueGenerator = InputActionValueGenerator()
     
     /// The Network Key to be sent to the device during provisioning.
