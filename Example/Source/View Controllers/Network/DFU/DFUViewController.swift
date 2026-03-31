@@ -31,7 +31,7 @@
 import UIKit
 import os.log
 import NordicMesh
-import iOSMcuManagerLibrary
+@preconcurrency import iOSMcuManagerLibrary
 
 /// Upload progress structure.
 private struct UploadProgress {
