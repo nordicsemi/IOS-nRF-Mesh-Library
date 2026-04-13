@@ -100,7 +100,7 @@ class SelectPublicationDestinationsViewController: UITableViewController {
             }
         }
         if section == IndexPath.groupsSection {
-            return network.groups.count + 1 // Add Group
+            return groups.count + 1 // Add Group
         }
         if section == IndexPath.specialGroupsSection {
             return Group.specialGroups.count
@@ -223,12 +223,13 @@ class SelectPublicationDestinationsViewController: UITableViewController {
         }
         
         // Add Group clicked.
-        if indexPath.isGroupsSection && indexPath.row == network.groups.count {
-            let number = network.groups.count + 1
+        if indexPath.isGroupsSection && indexPath.row == groups.count {
+            let number = groups.count + 1
             if let address = network.nextAvailableGroupAddress(),
                let newGroup = try? Group(name: "Group \(number)", address: address) {
                 try! network.add(group: newGroup)
                 _ = manager.save()
+                groups.append(newGroup)
                 tableView.insertRows(at: [indexPath], with: .automatic)
             }
             // Continue to select the new group.
