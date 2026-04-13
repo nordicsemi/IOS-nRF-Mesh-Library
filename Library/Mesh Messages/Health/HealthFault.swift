@@ -84,6 +84,7 @@ public enum HealthFault: Sendable, Hashable, Equatable {
     case mechanismJammedWarning
     case mechanismJammedError
     case vendor(_ id: UInt8)
+    case reserved(_ id: UInt8)
         
     /// The ID of the fault.
     var id: UInt8 {
@@ -140,11 +141,12 @@ public enum HealthFault: Sendable, Hashable, Equatable {
         case .mechanismJammedWarning:        return 0x31
         case .mechanismJammedError:          return 0x32
         case .vendor(let id):                return id
+        case .reserved(let id):              return id
         }
     }
     
     /// Creates a ``HealthFault`` from the given ID.
-    static func fromId(_ id: UInt8) -> HealthFault? {
+    static func fromId(_ id: UInt8) -> HealthFault {
         switch id {
         case 0x00:        return .noFault
         case 0x01:        return .batteryLowWarning
@@ -198,7 +200,7 @@ public enum HealthFault: Sendable, Hashable, Equatable {
         case 0x31:        return .mechanismJammedWarning
         case 0x32:        return .mechanismJammedError
         case 0x80...0xFF: return .vendor(id)
-        default:          return nil
+        default:          return .reserved(id)
         }
     }
     
@@ -266,6 +268,7 @@ extension HealthFault: CustomDebugStringConvertible {
         case .mechanismJammedWarning:        return "Warning: Mechanism Jammed"
         case .mechanismJammedError:          return "Error: Mechanism Jammed"
         case .vendor(let id):                return "Vendor (\(id))"
+        case .reserved(let id):              return "Reserved (\(id))"
         }
     }
 }

@@ -156,8 +156,8 @@ internal class HealthServerHandler: ModelDelegate {
             // and the "testID" is grater than 0, the fault with the ID equal to the testID
             // is added to the Registered Fault state.
             if request.companyIdentifier == nordicSemiconductor {
-                if request.testId > 0,
-                   let fault = HealthFault.fromId(request.testId) {
+                if request.testId > 0 {
+                    let fault = HealthFault.fromId(request.testId)
                     currentFaultState.insert(fault)
                 } else {
                     currentFaultState.removeAll()
@@ -219,8 +219,8 @@ internal class HealthServerHandler: ModelDelegate {
             // and the "testID" is grater than 0, the fault with the ID equal to the testID
             // is added to the Registered Fault state.
             if request.companyIdentifier == nordicSemiconductor {
-                if request.testId > 0,
-                   let fault = HealthFault.fromId(request.testId) {
+                if request.testId > 0 {
+                    let fault = HealthFault.fromId(request.testId)
                     currentFaultState.insert(fault)
                 } else {
                     currentFaultState.removeAll()

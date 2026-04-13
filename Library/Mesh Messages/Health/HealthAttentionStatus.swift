@@ -30,7 +30,7 @@
 
 import Foundation
 
-/// A Health Attention Set Unacknowledged is an unacknowledged message used to set the current
+/// A Health Attention Status is an unacknowledged message used to report the current
 /// Attention Timer state of an Element.
 ///
 /// The Attention Timer is intended to allow an Element to attract human attention and, among others,

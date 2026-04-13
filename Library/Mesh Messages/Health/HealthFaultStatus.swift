@@ -78,7 +78,7 @@ public struct HealthFaultStatus: StaticMeshResponse {
         if parameters.count > 3 {
             faults = parameters
                 .subdata(in: 3..<parameters.count)
-                .compactMap { HealthFault.fromId($0) }
+                .map { HealthFault.fromId($0) }
         } else {
             faults = []
         }
