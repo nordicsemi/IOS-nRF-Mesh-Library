@@ -588,7 +588,7 @@ public extension MeshNetworkManager {
                     (node.isLocalProvisioner || proxyFilter.proxy?.knows(networkKey: $0) == true)
               }) else {
             if let configNetKeyDelete = message as? ConfigNetKeyDelete,
-               networkKey == nil || networkKey?.index == configNetKeyDelete.networkKeyIndex {
+               !node.networkKeys.contains(where: { $0.index != configNetKeyDelete.networkKeyIndex }) {
                 print("Error: Cannot delete the last Network Key or a key used to secure the message")
                 throw AccessError.cannotDelete
             }
