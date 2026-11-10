@@ -86,6 +86,15 @@ public enum MeshNetworkError: Error {
     case ivIndexTooSmall
     /// Thrown when a key with the same index already exists in the network.
     case keyIndexAlreadyExists
+    /// Thrown when trying to initiate the IV Update procedure while it is
+    /// already in progress.
+    case ivUpdateInProgress
+    /// Thrown when trying to complete the IV Update procedure while it is
+    /// not in progress.
+    case ivUpdateNotInProgress
+    /// Thrown when trying to change the IV Index state before the current one
+    /// has lasted for 96 hours, while the IV Update test mode is disabled.
+    case ivIndexStateTooRecent
 }
 
 extension MeshNetworkError: LocalizedError {
@@ -114,6 +123,9 @@ extension MeshNetworkError: LocalizedError {
         case .noNetwork:                       return NSLocalizedString("Mesh Network not created.", comment: "")
         case .ivIndexTooSmall:                 return NSLocalizedString("IV Index too small", comment: "")
         case .keyIndexAlreadyExists:           return NSLocalizedString("Key with the same index already exists in the network.", comment: "")
+        case .ivUpdateInProgress:              return NSLocalizedString("IV Update procedure already in progress.", comment: "")
+        case .ivUpdateNotInProgress:           return NSLocalizedString("IV Update procedure not in progress.", comment: "")
+        case .ivIndexStateTooRecent:           return NSLocalizedString("The current IV Index state must last for at least 96 hours unless the IV Update test mode is enabled.", comment: "")
         }
     }
     

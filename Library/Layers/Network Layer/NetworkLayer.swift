@@ -233,6 +233,41 @@ internal class NetworkLayer {
         }
     }
     
+    /// This method sends a Secure Network beacon advertising the given IV Index
+    /// to the connected Proxy Node.
+    ///
+    /// The IV Index of the mesh network is not modified here. It is updated when
+    /// the Proxy Node accepts the new state and sends its own beacon back.
+    ///
+    /// The beacon is secured with the Primary Network Key, as a Node that knows it
+    /// disregards beacons for secondary subnets, or with each Network Key if the
+    /// mesh network has no Primary Network Key.
+    ///
+    /// - parameter ivIndex: The IV Index to advertise.
+    /// - throws: ``MeshNetworkError/ivIndexStateTooRecent`` when the local Node
+    ///           would itself discard a beacon with the given IV Index, or
+    ///           ``BearerError`` when the beacon could not be sent.
+    func send(secureNetworkBeaconWith ivIndex: IvIndex) throws {
+        guard let transmitter = networkManager?.transmitter else {
+            throw BearerError.bearerClosed
+        }
+        let networkKeys = meshNetwork.networkKeys.primaryKey.map { [$0] } ?? meshNetwork.networkKeys
+        let beacons = networkKeys.map { SecureNetworkBeacon(ivIndex: ivIndex, usingNetworkKey: $0) }
+        // The beacon sent back by the Proxy Node is checked against the same rules,
+        // the 96-hour rule in particular: a state the local Node would discard
+        // must not be sent to the network.
+        guard let beacon = beacons.first else {
+            throw MeshNetworkError.noNetworkKey
+        }
+        guard canOverwriteIvIndex(with: beacon) else {
+            throw MeshNetworkError.ivIndexStateTooRecent
+        }
+        for beacon in beacons {
+            logger?.i(.network, "Sending \(beacon)")
+            try transmitter.send(beacon.pdu, ofType: .meshBeacon)
+        }
+    }
+    
     /// This method returns the next outgoing Sequence number for the given
     /// local source Address.
     ///
@@ -246,6 +281,38 @@ internal class NetworkLayer {
 }
 
 private extension NetworkLayer {
+    
+    /// The last used IV Index for this mesh network and the date of the last
+    /// change of IV Index or IV Update Flag.
+    ///
+    /// Note: Before version 2.2.2 the last IV Index was not stored.
+    ///       Instead IV Index was set to 0.
+    var lastIvIndexState: (ivIndex: IvIndex, date: Date?) {
+        let map = defaults.object(forKey: IvIndex.indexKey) as? [String : Any]
+        return (IvIndex.fromMap(map) ?? IvIndex(),
+                defaults.object(forKey: IvIndex.timestampKey) as? Date)
+    }
+    
+    /// Returns whether the given network beacon can overwrite the last IV Index.
+    ///
+    /// - parameter networkBeacon: The Secure Network or Private beacon.
+    /// - returns: True, if the network information can be applied; false otherwise.
+    func canOverwriteIvIndex(with networkBeacon: NetworkBeaconPdu) -> Bool {
+        guard let networkManager = networkManager else { return false }
+        let (lastIVIndex, lastTransitionDate) = lastIvIndexState
+        /// A flag whether the IV has recently been updated using IV Recovery procedure.
+        /// The at-least-96h requirement for the duration of the current state will not apply.
+        /// The node shall not execute more than one IV Index Recovery within a period of 192 hours.
+        let isIvRecoveryActive = defaults.bool(forKey: IvIndex.ivRecoveryKey)
+        /// The test mode disables the 96h rule, leaving all other behavior unchanged.
+        let isIvTestModeActive = networkManager.networkParameters.ivUpdateTestMode
+        let flag = networkManager.networkParameters.allowIvIndexRecoveryOver42
+        return networkBeacon.canOverwrite(ivIndex: lastIVIndex,
+                                          updatedAt: lastTransitionDate,
+                                          withIvRecovery: isIvRecoveryActive,
+                                          testMode: isIvTestModeActive,
+                                          andUnlimitedIvRecoveryAllowed: flag)
+    }
     
     /// This method handles the Unprovisioned Device beacon.
     ///
@@ -284,27 +351,9 @@ private extension NetworkLayer {
         }
         
         // Get the last IV Index.
-        //
-        // Note: Before version 2.2.2 the last IV Index was not stored.
-        //       Instead IV Index was set to 0.
-        let map = defaults.object(forKey: IvIndex.indexKey) as? [String : Any]
-        /// The last used IV Index for this mesh network.
-        let lastIVIndex = IvIndex.fromMap(map) ?? IvIndex()
-        /// The date of the last change of IV Index or IV Update Flag.
-        let lastTransitionDate = defaults.object(forKey: IvIndex.timestampKey) as? Date
-        /// A flag whether the IV has recently been updated using IV Recovery procedure.
-        /// The at-least-96h requirement for the duration of the current state will not apply.
-        /// The node shall not execute more than one IV Index Recovery within a period of 192 hours.
-        let isIvRecoveryActive = defaults.bool(forKey: IvIndex.ivRecoveryKey)
-        /// The test mode disables the 96h rule, leaving all other behavior unchanged.
-        let isIvTestModeActive = networkManager.networkParameters.ivUpdateTestMode
+        let (lastIVIndex, lastTransitionDate) = lastIvIndexState
         // Ensure, that the received beacon can overwrite current IV Index.
-        let flag = networkManager.networkParameters.allowIvIndexRecoveryOver42
-        if networkBeacon.canOverwrite(ivIndex: lastIVIndex,
-                                            updatedAt: lastTransitionDate,
-                                            withIvRecovery: isIvRecoveryActive,
-                                            testMode: isIvTestModeActive,
-                                            andUnlimitedIvRecoveryAllowed: flag) {
+        if canOverwriteIvIndex(with: networkBeacon) {
             // Update the IV Index based on the information from the beacon.
             meshNetwork.ivIndex = networkBeacon.ivIndex
             

@@ -78,6 +78,41 @@ internal struct SecureNetworkBeacon: NetworkBeaconPdu {
             return nil
         }
     }
+    
+    /// Creates a Secure Network beacon PDU advertising the given IV Index.
+    ///
+    /// The beacon is secured with the key used for transmitting in the current
+    /// Key Refresh Phase of the Network Key, and its Key Refresh flag is set
+    /// in Phase 2.
+    ///
+    /// - parameters:
+    ///   - ivIndex: The IV Index to advertise.
+    ///   - networkKey: The Network Key to secure the beacon.
+    init(ivIndex: IvIndex, usingNetworkKey networkKey: NetworkKey) {
+        self.networkKey = networkKey
+        self.ivIndex = ivIndex
+        if case .usingNewKeys = networkKey.phase {
+            keyRefreshFlag = true
+        } else {
+            keyRefreshFlag = false
+        }
+        // During Key Refresh Procedure in Phase 1 (key distribution) the
+        // beacon is secured using the old Network Key.
+        let networkId: Data
+        if case .keyDistribution = networkKey.phase, let oldNetworkId = networkKey.oldNetworkId {
+            networkId = oldNetworkId
+            validForKeyRefreshProcedure = false
+        } else {
+            networkId = networkKey.networkId
+            validForKeyRefreshProcedure = networkKey.oldKey != nil
+        }
+        let flags: UInt8 = (keyRefreshFlag ? 0x01 : 0x00) | (ivIndex.updateActive ? 0x02 : 0x00)
+        let flagsNetworkIdAndIVIndex = Data([flags]) + networkId + ivIndex.index.bigEndian
+        let authenticationValue = Crypto.calculateAuthenticationValue(
+            ofSecureNetworkBeacon: flagsNetworkIdAndIVIndex,
+            usingBeaconKey: networkKey.transmitKeys.beaconKey)
+        pdu = Data([BeaconType.secureNetwork.rawValue]) + flagsNetworkIdAndIVIndex + authenticationValue
+    }
 }
 
 extension SecureNetworkBeacon: CustomDebugStringConvertible {
