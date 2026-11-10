@@ -128,9 +128,7 @@ class SettingsViewController: UITableViewController {
                 if onlyProvisioner {
                     presentIvIndexDialog()
                 } else {
-                    presentAlert(title: "IV Index",
-                                 message: "The IV Index can only be changed on a new network before any nodes are provisioned.\n\n" +
-                                          "Currently it is not possible to trigger IV Update procedure from nRF Mesh app. IV Update can be triggered from other Nodes.")
+                    presentIvUpdateConfirmation(complete: meshNetwork.ivIndex.updateActive)
                 }
             }
         }
@@ -311,6 +309,32 @@ private extension SettingsViewController {
         
         // Present the alert
         present(alert, animated: true)
+    }
+    
+    /// Asks to initiate or to complete the IV Update procedure.
+    ///
+    /// - parameter complete: True to complete the IV Update procedure, false to initiate it.
+    func presentIvUpdateConfirmation(complete: Bool) {
+        let title = complete ? "Complete IV Update" : "Initiate IV Update"
+        let message = complete
+            ? "The connected proxy node will be asked to move the network back to Normal Operation, "
+              + "which resets the sequence numbers. Nodes accept it only after at least 96 hours "
+              + "of IV Update in Progress, unless they are in IV Update test mode."
+            : "The connected proxy node will be asked to increment the IV Index and move the network "
+              + "to IV Update in Progress. Nodes accept it only after at least 96 hours in Normal "
+              + "Operation, unless they are in IV Update test mode."
+        let action = UIAlertAction(title: complete ? "Complete" : "Initiate", style: .default) { [weak self] _ in
+            do {
+                if complete {
+                    try MeshNetworkManager.instance.completeIvUpdate()
+                } else {
+                    try MeshNetworkManager.instance.initiateIvUpdate()
+                }
+            } catch {
+                self?.presentAlert(title: "Error", message: error.localizedDescription)
+            }
+        }
+        presentAlert(title: title, message: message, cancelable: true, option: action)
     }
     
     /// Presents a dialog with resetting confirmation.
