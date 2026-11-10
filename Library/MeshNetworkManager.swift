@@ -963,6 +963,72 @@ public extension MeshNetworkManager {
         }
     }
     
+    /// Initiates the IV Update procedure, from Normal Operation to IV Update in Progress.
+    ///
+    /// This method sends to the connected GATT Proxy Node a Secure Network beacon
+    /// with the IV Index incremented by one and the IV Update flag set. The Proxy Node
+    /// processes it as a beacon received over the advertising bearer and, if it accepts
+    /// the new state, relays it to the network and sends its own Secure Network beacon
+    /// back. The ``MeshNetwork/ivIndex`` is updated when that beacon is received, and
+    /// the ``MeshNetwork/ivIndexObserver`` is notified. A Proxy Node that rejects the
+    /// new state, for instance because it has not been in Normal Operation for 96 hours,
+    /// leaves the IV Index unchanged.
+    ///
+    /// The beacon is secured with the Primary Network Key, or with each Network Key
+    /// if the mesh network has no Primary Network Key.
+    ///
+    /// - throws: ``MeshNetworkError/ivUpdateInProgress`` when the IV Update procedure
+    ///           is already in progress, ``MeshNetworkError/ivIndexStateTooRecent``
+    ///           when the mesh network has not been in Normal Operation for 96 hours
+    ///           and ``NetworkParameters/ivUpdateTestMode`` is disabled, or
+    ///           ``BearerError`` when the beacon could not be sent.
+    /// - seeAlso: Bluetooth Mesh Profile 1.0.1, section 3.10.5, and Proxy Server behavior.
+    func initiateIvUpdate() throws {
+        guard let networkManager = networkManager,
+              let meshNetwork = meshNetwork else {
+            print("Error: Mesh Network not created")
+            throw MeshNetworkError.noNetwork
+        }
+        let ivIndex = meshNetwork.ivIndex
+        guard !ivIndex.updateActive else {
+            throw MeshNetworkError.ivUpdateInProgress
+        }
+        try networkManager.networkLayer.send(
+            secureNetworkBeaconWith: IvIndex(index: ivIndex.index + 1, updateActive: true))
+    }
+    
+    /// Completes the IV Update procedure, from IV Update in Progress to Normal Operation.
+    ///
+    /// This method sends to the connected GATT Proxy Node a Secure Network beacon
+    /// with the current IV Index and the IV Update flag cleared. As with
+    /// ``initiateIvUpdate()``, the ``MeshNetwork/ivIndex`` is updated when the Proxy Node
+    /// sends the new state back, and the sequence numbers of the local Node are reset
+    /// to 0 at this point.
+    ///
+    /// Nodes complete the procedure on their own between 96 and 144 hours after it was
+    /// initiated; this method lets the network complete it as soon as the 96 hours are
+    /// over, or at any time in IV Update test mode.
+    ///
+    /// - throws: ``MeshNetworkError/ivUpdateNotInProgress`` when the IV Update procedure
+    ///           is not in progress, ``MeshNetworkError/ivIndexStateTooRecent``
+    ///           when it has not been in progress for 96 hours and
+    ///           ``NetworkParameters/ivUpdateTestMode`` is disabled, or
+    ///           ``BearerError`` when the beacon could not be sent.
+    /// - seeAlso: Bluetooth Mesh Profile 1.0.1, section 3.10.5, and Proxy Server behavior.
+    func completeIvUpdate() throws {
+        guard let networkManager = networkManager,
+              let meshNetwork = meshNetwork else {
+            print("Error: Mesh Network not created")
+            throw MeshNetworkError.noNetwork
+        }
+        let ivIndex = meshNetwork.ivIndex
+        guard ivIndex.updateActive else {
+            throw MeshNetworkError.ivUpdateNotInProgress
+        }
+        try networkManager.networkLayer.send(
+            secureNetworkBeaconWith: IvIndex(index: ivIndex.index, updateActive: false))
+    }
+    
     /// This is a blocking method awaiting a mesh message with given OpCode
     /// sent from a specified source Unicast Address.
     ///

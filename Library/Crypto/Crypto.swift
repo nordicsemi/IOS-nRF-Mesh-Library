@@ -159,8 +159,20 @@ internal class Crypto {
         // Byte 0 of the PDU is the Beacon Type (0x01).
         let flagsNetworkIdAndIVIndex = pdu.subdata(in: 1..<14)
         let authenticationValue = pdu.subdata(in: 14..<22)
-        let hash = calculateCMAC(flagsNetworkIdAndIVIndex, andKey: key).subdata(in: 0..<8)
+        let hash = calculateAuthenticationValue(ofSecureNetworkBeacon: flagsNetworkIdAndIVIndex, usingBeaconKey: key)
         return authenticationValue == hash
+    }
+    
+    /// Calculates the Authentication Value of a Secure Network beacon using the
+    /// given Beacon Key.
+    ///
+    /// - parameters:
+    ///   - flagsNetworkIdAndIVIndex: The Flags, Network ID and IV Index fields of the beacon.
+    ///   - key: The Beacon Key generated from a Network Key.
+    /// - returns: The 64-bit Authentication Value.
+    static func calculateAuthenticationValue(ofSecureNetworkBeacon flagsNetworkIdAndIVIndex: Data,
+                                             usingBeaconKey key: Data) -> Data {
+        return calculateCMAC(flagsNetworkIdAndIVIndex, andKey: key).subdata(in: 0..<8)
     }
     
     /// Decodes and authenticates the received Private beacon using the given Private

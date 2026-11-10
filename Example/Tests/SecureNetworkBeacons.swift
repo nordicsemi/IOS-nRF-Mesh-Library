@@ -52,6 +52,17 @@ class SecureNetworkBeacons: XCTestCase {
         XCTAssertEqual(snb?.keyRefreshFlag, false)
     }
     
+    func testEncodingSecureNordicBeacon() throws {
+        let ivIndex = IvIndex(index: 2, updateActive: true)
+        let snb = SecureNetworkBeacon(ivIndex: ivIndex, usingNetworkKey: networkKey)
+        
+        XCTAssertEqual(snb.pdu, Data(hex: "0102EE6C0EFF5298ECFF000000025E5AA7B268B5E044"))
+        XCTAssertEqual(snb.keyRefreshFlag, false)
+        
+        let decoded = SecureNetworkBeacon(decode: snb.pdu, usingNetworkKey: networkKey)
+        XCTAssertEqual(decoded?.ivIndex, ivIndex)
+    }
+    
     func testOverwritingWithTheSameIvIndex() {
         let data = Data(hex: "0102EE6C0EFF5298ECFF000000025E5AA7B268B5E044")
         let snb = SecureNetworkBeacon(decode: data, usingNetworkKey: networkKey)
