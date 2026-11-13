@@ -95,12 +95,10 @@ public struct FirmwareDistributionUploadOOBStart: StaticAcknowledgedMeshMessage 
         }
         self.uri = uri
         
+        // The Firmware ID follows the URI. It consists of the 2 byte Company ID,
+        // followed by the version, which may be empty.
         let companyIdentifier: UInt16 = parameters.read(fromOffset: 1 + uriLength)
-        if parameters.count > 3 + uriLength {
-            let version = parameters.subdata(in: 3 + uriLength + 2..<parameters.count)
-            self.currentFirmwareId = FirmwareId(companyIdentifier: companyIdentifier, version: version)
-        } else {
-            self.currentFirmwareId = FirmwareId(companyIdentifier: companyIdentifier, version: Data())
-        }
+        let version = parameters.subdata(in: 3 + uriLength..<parameters.count)
+        self.currentFirmwareId = FirmwareId(companyIdentifier: companyIdentifier, version: version)
     }
 }

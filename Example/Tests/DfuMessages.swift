@@ -279,3 +279,70 @@ class FirmwareUpdateMessages: XCTestCase {
         XCTAssertEqual(status.progress,   status2?.progress)
     }
 }
+
+class FirmwareDistributionUploadOOBStartMessage: XCTestCase {
+    
+    private func assertRoundTrip(
+        uri: String = "https://example.com/fw",
+        version: Data,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) {
+        let message = FirmwareDistributionUploadOOBStart(
+            uri: URL(string: uri)!,
+            currentFirmwareId: FirmwareId(companyIdentifier: 0x0059, version: version)
+        )
+        
+        guard let parameters = message.parameters,
+              let parsed = FirmwareDistributionUploadOOBStart(parameters: parameters) else {
+            return XCTFail("Message could not be parsed", file: file, line: line)
+        }
+        XCTAssertEqual(parsed.uri.absoluteString, uri, file: file, line: line)
+        XCTAssertEqual(parsed.currentFirmwareId.companyIdentifier, 0x0059, file: file, line: line)
+        XCTAssertEqual(parsed.currentFirmwareId.version, version, file: file, line: line)
+    }
+    
+    func testParametersStartWithUriLength() {
+        let uri = "https://example.com/fw"
+        let message = FirmwareDistributionUploadOOBStart(
+            uri: URL(string: uri)!,
+            currentFirmwareId: FirmwareId(companyIdentifier: 0x0059, version: Data(hex: "0102"))
+        )
+        
+        XCTAssertEqual(
+            message.parameters,
+            Data([UInt8(uri.count)]) + uri.data(using: .utf8)! + Data(hex: "59000102")
+        )
+    }
+    
+    func testParseVersion() {
+        // URI "https://a.b" (11 bytes), Company ID 0x0059, version 0x010203.
+        let data = Data(hex: "0B68747470733A2F2F612E62" + "5900" + "010203")
+        
+        let message = FirmwareDistributionUploadOOBStart(parameters: data)
+        XCTAssertNotNil(message)
+        XCTAssertEqual(message?.uri.absoluteString, "https://a.b")
+        XCTAssertEqual(message?.currentFirmwareId.companyIdentifier, 0x0059)
+        XCTAssertEqual(message?.currentFirmwareId.version, Data(hex: "010203"))
+    }
+    
+    func testRoundTripWithoutVersion() {
+        assertRoundTrip(version: Data())
+    }
+    
+    func testRoundTripWithOneByteVersion() {
+        assertRoundTrip(version: Data(hex: "07"))
+    }
+    
+    func testRoundTripWithLongerVersion() {
+        assertRoundTrip(version: Data(hex: "01020304"))
+    }
+    
+    func testRoundTripWithMaximumLengthUri() {
+        let prefix = "https://example.com/"
+        let uri = prefix + String(repeating: "a", count: 255 - prefix.count)
+        XCTAssertEqual(uri.count, 255)
+        assertRoundTrip(uri: uri, version: Data(hex: "01"))
+    }
+    
+}
